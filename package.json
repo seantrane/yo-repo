@@ -14,20 +14,26 @@
     "yeoman-generator"
   ],
   "scripts": {
+    "build:e2e": "npm run build && npm run e2e",
+    "build:test:e2e": "npm run build && npm test && npm run e2e",
     "build:test": "npm run build && npm test",
-    "build": "tsc",
+    "build": "tsc && npm run sync:templates",
+    "ci": "npm run lint && npm run build:test:e2e",
     "clean:dist": "shx rm -rf generators",
     "clean:temp": "shx rm -rf temp",
     "clean": "shx rm -rf generators temp",
     "commitmsg": "commitlint -E GIT_PARAMS",
     "coverage": "istanbul cover node_modules/mocha/bin/_mocha -- --opts mocha.opts",
     "docs": "typedoc --options typedoc.json --exclude '**/*.spec.ts' ./src/",
+    "e2e": "shx rm -rf temp && shx mkdir temp && (cd temp && yo repo) || exit 1",
     "git:commit": "git-cz",
     "lint:md": "npm run markdownlint -- -i 'node_modules/' -c '.markdownlint.yaml' './'",
     "lint:ts": "tslint \"src/**/*.ts\"",
     "lint": "npm run lint:md && npm run lint:ts",
     "markdownlint": "markdownlint",
     "semantic-release": "semantic-release",
+    "sync:templates:default": "sync-files src/default/templates generators/default/templates",
+    "sync:templates": "npm run sync:templates:default",
     "test": "nyc mocha --opts mocha.opts"
   },
   "dependencies": {
