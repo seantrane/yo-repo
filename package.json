@@ -14,12 +14,21 @@
     "yeoman-generator"
   ],
   "scripts": {
+    "build:test": "npm run build && npm test",
+    "build": "tsc",
+    "clean:dist": "shx rm -rf generators",
+    "clean:temp": "shx rm -rf temp",
+    "clean": "shx rm -rf generators temp",
     "commitmsg": "commitlint -E GIT_PARAMS",
+    "coverage": "istanbul cover node_modules/mocha/bin/_mocha -- --opts mocha.opts",
+    "docs": "typedoc --options typedoc.json --exclude '**/*.spec.ts' ./src/",
     "git:commit": "git-cz",
     "lint:md": "npm run markdownlint -- -i 'node_modules/' -c '.markdownlint.yaml' './'",
-    "lint": "npm run lint:md",
+    "lint:ts": "tslint \"src/**/*.ts\"",
+    "lint": "npm run lint:md && npm run lint:ts",
     "markdownlint": "markdownlint",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "test": "nyc mocha --opts mocha.opts"
   },
   "dependencies": {
     "yeoman-generator": "^3.1.1",
@@ -31,17 +40,28 @@
     "@commitlint/travis-cli": "^7.0.0",
     "@semantic-release/changelog": "^3.0.0",
     "@semantic-release/git": "^7.0.1",
+    "@types/chai": "^4.1.4",
+    "@types/mocha": "^5.2.5",
     "@types/node": "^10.5.7",
+    "@types/sinon": "^5.0.1",
+    "@types/sinon-chai": "^3.2.0",
     "@types/yeoman-generator": "^2.0.3",
     "@types/yeoman-test": "^1.7.4",
     "@types/yosay": "0.0.29",
+    "chai": "^4.1.2",
     "commitizen": "^2.10.1",
     "cz-conventional-changelog": "^2.1.0",
     "husky": "^0.14.3",
+    "istanbul": "^0.4.5",
     "markdownlint-cli": "^0.13.0",
     "marked": "^0.4.0",
+    "mocha": "^5.2.0",
+    "nyc": "^12.0.2",
     "semantic-release": "^15.9.5",
     "shx": "^0.3.2",
+    "sinon": "^6.1.5",
+    "sinon-chai": "^3.2.0",
+    "source-map-support": "^0.5.8",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
     "typedoc": "^0.12.0",
@@ -84,5 +104,50 @@
     "fail": [
       "@semantic-release/github"
     ]
+  },
+  "nyc": {
+    "check-coverage": true,
+    "per-file": false,
+    "branches": 80,
+    "functions": 80,
+    "lines": 80,
+    "statements": 80,
+    "watermarks": {
+      "branches": [
+        80,
+        95
+      ],
+      "functions": [
+        80,
+        95
+      ],
+      "lines": [
+        80,
+        95
+      ],
+      "statements": [
+        80,
+        95
+      ]
+    },
+    "extension": [
+      ".ts",
+      ".tsx"
+    ],
+    "exclude": [
+      "**/*.d.ts",
+      "**/*.spec.ts",
+      "coverage",
+      "generators"
+    ],
+    "include": [
+      "src/**/*.ts"
+    ],
+    "reporter": [
+      "html",
+      "lcov",
+      "text"
+    ],
+    "all": true
   }
 }
