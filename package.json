@@ -1,0 +1,88 @@
+{
+  "name": "generator-repo",
+  "description": "Yo Repo! A Yeoman generator for awesome Git repo management.",
+  "version": "1.0.0",
+  "author": "@seantrane",
+  "license": "MIT",
+  "homepage": "https://github.com/seantrane/yo-repo",
+  "repository": "github:seantrane/yo-repo",
+  "bugs": "https://github.com/seantrane/yo-repo/issues",
+  "files": [
+    "generators"
+  ],
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "scripts": {
+    "commitmsg": "commitlint -E GIT_PARAMS",
+    "git:commit": "git-cz",
+    "lint:md": "npm run markdownlint -- -i 'node_modules/' -c '.markdownlint.yaml' './'",
+    "lint": "npm run lint:md",
+    "markdownlint": "markdownlint",
+    "semantic-release": "semantic-release"
+  },
+  "dependencies": {
+    "yeoman-generator": "^3.1.1",
+    "yosay": "^2.0.2"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^7.0.0",
+    "@commitlint/config-conventional": "^7.0.1",
+    "@commitlint/travis-cli": "^7.0.0",
+    "@semantic-release/changelog": "^3.0.0",
+    "@semantic-release/git": "^7.0.1",
+    "@types/node": "^10.5.7",
+    "@types/yeoman-generator": "^2.0.3",
+    "@types/yeoman-test": "^1.7.4",
+    "@types/yosay": "0.0.29",
+    "commitizen": "^2.10.1",
+    "cz-conventional-changelog": "^2.1.0",
+    "husky": "^0.14.3",
+    "markdownlint-cli": "^0.13.0",
+    "marked": "^0.4.0",
+    "semantic-release": "^15.9.5",
+    "shx": "^0.3.2",
+    "ts-node": "~7.0.0",
+    "tslint": "~5.11.0",
+    "typedoc": "^0.12.0",
+    "typescript": "~2.9.2",
+    "yeoman-assert": "^3.1.1",
+    "yeoman-test": "^1.9.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "release": {
+    "verifyConditions": [
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      "@semantic-release/git",
+      "@semantic-release/github"
+    ],
+    "prepare": [
+      {
+        "path": "@semantic-release/changelog",
+        "changelogTitle": "# CHANGELOG"
+      },
+      "@semantic-release/npm",
+      "@semantic-release/git"
+    ],
+    "publish": [
+      "@semantic-release/npm",
+      "@semantic-release/github"
+    ],
+    "success": [
+      "@semantic-release/github"
+    ],
+    "fail": [
+      "@semantic-release/github"
+    ]
+  }
+}
