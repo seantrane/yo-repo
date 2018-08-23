@@ -37,6 +37,7 @@
     "test": "nyc mocha --opts mocha.opts"
   },
   "dependencies": {
+    "@octokit/rest": "^15.10.0",
     "chalk": "^2.4.1",
     "clear": "^0.1.0",
     "clui": "^0.3.6",
