@@ -37,7 +37,17 @@
     "test": "nyc mocha --opts mocha.opts"
   },
   "dependencies": {
+    "chalk": "^2.4.1",
+    "clear": "^0.1.0",
+    "clui": "^0.3.6",
+    "configstore": "^4.0.0",
+    "date-fns": "^1.29.0",
+    "figlet": "^1.2.0",
+    "generator-editorconf": "^0.2.0",
+    "generator-license": "^5.4.0",
+    "shelljs": "^0.8.2",
     "yeoman-generator": "^3.1.1",
+    "yo-option-or-prompt": "^0.1.2",
     "yosay": "^2.0.2"
   },
   "devDependencies": {
@@ -47,8 +57,12 @@
     "@semantic-release/changelog": "^3.0.0",
     "@semantic-release/git": "^7.0.1",
     "@types/chai": "^4.1.4",
+    "@types/configstore": "^2.1.1",
+    "@types/figlet": "^1.2.0",
+    "@types/lodash": "^4.14.116",
     "@types/mocha": "^5.2.5",
     "@types/node": "^10.5.7",
+    "@types/shelljs": "^0.8.0",
     "@types/sinon": "^5.0.1",
     "@types/sinon-chai": "^3.2.0",
     "@types/yeoman-generator": "^2.0.3",
