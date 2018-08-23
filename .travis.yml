@@ -1,0 +1,44 @@
+sudo: false
+language: node_js
+node_js:
+  - '8'
+cache:
+  directories:
+    - ~/.npm
+    - node_modules
+notifications:
+  email: false
+branches:
+  only:
+    - master
+    - /^greenkeeper.*$/
+before_install:
+  # package-lock.json was introduced in npm@5
+  - '[[ $(node -v) =~ ^v9.*$ ]] || npm install -g npm@latest' # skipped when using node 9
+  - npm install -g greenkeeper-lockfile
+install:
+  - travis_retry npm install
+stages:
+  - before
+  - test
+  - after
+  - name: deploy
+    if: branch = master
+jobs:
+  include:
+    - stage: before
+      name: 'Greenkeeper lockfile update'
+      script: greenkeeper-lockfile-update
+    - name: 'Lint commit messages'
+      script: commitlint-travis
+    - name: 'Lint code'
+      script: npm run lint
+    - stage: test
+      name: 'Unit Tests'
+      script: echo "soon come"
+    - stage: after
+      name: 'Greenkeeper lockfile upload'
+      script: greenkeeper-lockfile-upload
+    - stage: deploy
+      name: 'Publish'
+      script: npm run semantic-release
