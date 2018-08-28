@@ -161,6 +161,16 @@ export async function prompting(yo) {
       repositoryUrl: yo.answers.repositoryUrl,
     });
   }
+  if (yo.options['generators'].indexOf('ci') !== -1) {
+    yo.composeWith('repo:ci', {
+      // cicd: yo.answers.cicd,
+      destination: yo.answers.destination,
+      profileName: yo.answers.profileName || yo.answers.username,
+      repositoryName: yo.answers.repositoryName || yo.answers.packageName,
+      repositoryUrl: yo.answers.repositoryUrl,
+      username: yo.answers.username,
+    });
+  }
   yo.context = { ...yo.context, ...yo.answers };
 }
 

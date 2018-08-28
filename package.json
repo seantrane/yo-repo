@@ -16,11 +16,12 @@
   "scripts": {
     "build:e2e": "npm run build && npm run e2e",
     "build:templates:app": "shx cp -Rf src/app/templates/ generators/app/templates/",
+    "build:templates:ci": "shx cp -Rf src/ci/templates/ generators/ci/templates/",
     "build:templates:contributing": "shx cp -Rf src/contributing/templates/ generators/contributing/templates/",
     "build:templates:ignore": "shx cp -Rf src/ignore/templates/ generators/ignore/templates/",
     "build:templates:readme": "shx cp -Rf src/readme/templates/ generators/readme/templates/",
     "build:templates:roadmap": "shx cp -Rf src/roadmap/templates/ generators/roadmap/templates/",
-    "build:templates": "npm run build:templates:app && npm run build:templates:contributing && npm run build:templates:ignore && npm run build:templates:readme && npm run build:templates:roadmap",
+    "build:templates": "npm run build:templates:app && npm run build:templates:ci && npm run build:templates:contributing && npm run build:templates:ignore && npm run build:templates:readme && npm run build:templates:roadmap",
     "build:test:e2e": "npm run build && npm test && npm run e2e",
     "build:test": "npm run build && npm test",
     "build": "npm run clean:dist && tsc && npm run build:templates",
