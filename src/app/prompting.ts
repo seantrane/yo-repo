@@ -43,12 +43,25 @@ export async function prompting(yo) {
     if (keyword === '') break;
     keywords.push(keyword);
   }
+  const features = [];
+  while (true) {
+    const { feature } = await yo.prompt([
+      {
+        type: 'input',
+        name: 'feature',
+        message: 'Feature:',
+      },
+    ]);
+    if (feature === '') break;
+    features.push(feature);
+  }
   yo.answers = {
     authorEmail,
     authorName,
     authorUrl,
     description,
     destination,
+    features,
     homepageUrl,
     keywords,
     license,
