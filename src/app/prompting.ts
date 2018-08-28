@@ -46,6 +46,11 @@ export async function prompting(yo) {
     username,
     version,
   };
+  if (yo.options['generators'].indexOf('ignore') !== -1) {
+    yo.composeWith('repo:ignore', {
+      destination: yo.answers.destination,
+    });
+  }
   yo.context = { ...yo.context, ...yo.answers };
 }
 
