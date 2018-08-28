@@ -154,6 +154,13 @@ export async function prompting(yo) {
       username: yo.answers.username,
     });
   }
+  if (yo.options['generators'].indexOf('roadmap') !== -1) {
+    yo.composeWith('repo:roadmap', {
+      destination: yo.answers.destination,
+      features: yo.answers.features,
+      repositoryUrl: yo.answers.repositoryUrl,
+    });
+  }
   yo.context = { ...yo.context, ...yo.answers };
 }
 
