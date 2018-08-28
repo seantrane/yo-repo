@@ -31,6 +31,18 @@ export async function prompting(yo) {
     repositoryUrl: true,
     homepageUrl: true,
   });
+  const keywords = [];
+  while (true) {
+    const { keyword } = await yo.prompt([
+      {
+        type: 'input',
+        name: 'keyword',
+        message: 'Keyword:',
+      },
+    ]);
+    if (keyword === '') break;
+    keywords.push(keyword);
+  }
   yo.answers = {
     authorEmail,
     authorName,
@@ -38,6 +50,7 @@ export async function prompting(yo) {
     description,
     destination,
     homepageUrl,
+    keywords,
     license,
     packageName,
     profileName,
