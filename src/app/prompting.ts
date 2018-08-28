@@ -51,6 +51,15 @@ export async function prompting(yo) {
       destination: yo.answers.destination,
     });
   }
+  if (yo.options['generators'].indexOf('license') !== -1) {
+    yo.composeWith(require.resolve('generator-license'), {
+      email: yo.answers.authorEmail || yo.answers.username + '@users.noreply.github.com',
+      license: yo.answers.license,
+      name: yo.answers.authorName || yo.answers.username,
+      output: resolve(yo.answers.destination, 'LICENSE'),
+      website: yo.answers.homepageUrl || yo.answers.authorUrl,
+    });
+  }
   yo.context = { ...yo.context, ...yo.answers };
 }
 
