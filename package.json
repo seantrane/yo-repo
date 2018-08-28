@@ -34,7 +34,7 @@
     "docs": "typedoc --options typedoc.json --exclude '**/*.spec.ts' ./src/",
     "e2e": "shx rm -rf temp && shx mkdir temp && (cd temp && yo repo) || exit 1",
     "git:commit": "git-cz",
-    "lint:md": "npm run markdownlint -- -i 'node_modules/' -c '.markdownlint.yaml' './'",
+    "lint:md": "npm run markdownlint -- -i 'generators/' -i 'node_modules/' -i 'src/' -i 'temp/' -c '.markdownlint.yaml' './'",
     "lint:ts": "tslint \"src/**/*.ts\"",
     "lint": "npm run lint:md && npm run lint:ts",
     "markdownlint": "markdownlint",
