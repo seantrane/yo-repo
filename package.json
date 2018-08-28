@@ -32,8 +32,6 @@
     "lint": "npm run lint:md && npm run lint:ts",
     "markdownlint": "markdownlint",
     "semantic-release": "semantic-release",
-    "sync:templates:default": "sync-files src/default/templates generators/default/templates",
-    "sync:templates": "npm run sync:templates:default",
     "test": "nyc mocha --opts mocha.opts"
   },
   "dependencies": {
@@ -44,11 +42,11 @@
     "configstore": "^4.0.0",
     "date-fns": "^1.29.0",
     "figlet": "^1.2.0",
-    "generator-editorconf": "^0.2.0",
     "generator-license": "^5.4.0",
+    "parse-git-config": "^2.0.3",
     "shelljs": "^0.8.2",
+    "spdx-correct": "^3.0.0",
     "yeoman-generator": "^3.1.1",
-    "yo-option-or-prompt": "^0.1.2",
     "yosay": "^2.0.2"
   },
   "devDependencies": {
@@ -63,9 +61,11 @@
     "@types/lodash": "^4.14.116",
     "@types/mocha": "^5.2.5",
     "@types/node": "^10.5.7",
+    "@types/parse-git-config": "^2.0.1",
     "@types/shelljs": "^0.8.0",
     "@types/sinon": "^5.0.1",
     "@types/sinon-chai": "^3.2.0",
+    "@types/spdx-correct": "^2.0.0",
     "@types/yeoman-generator": "^2.0.3",
     "@types/yeoman-test": "^1.7.4",
     "@types/yosay": "0.0.29",
@@ -83,7 +83,6 @@
     "sinon": "^6.1.5",
     "sinon-chai": "^3.2.0",
     "source-map-support": "^0.5.8",
-    "sync-files": "^1.0.3",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
     "typedoc": "^0.12.0",
