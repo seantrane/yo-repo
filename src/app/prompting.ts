@@ -144,6 +144,16 @@ export async function prompting(yo) {
       username: yo.answers.username,
     });
   }
+  if (yo.options['generators'].indexOf('contributing') !== -1) {
+    yo.composeWith('repo:contributing', {
+      destination: yo.answers.destination,
+      packageName: yo.answers.packageName,
+      profileName: yo.answers.profileName || yo.answers.username,
+      repositoryName: yo.answers.repositoryName || yo.answers.packageName,
+      repositoryUrl: yo.answers.repositoryUrl,
+      username: yo.answers.username,
+    });
+  }
   yo.context = { ...yo.context, ...yo.answers };
 }
 
