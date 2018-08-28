@@ -55,6 +55,18 @@ export async function prompting(yo) {
     if (feature === '') break;
     features.push(feature);
   }
+  const { installation, demo } = await yo.prompt([
+    {
+      type: 'input',
+      name: 'installation',
+      message: 'Installation command:',
+    },
+    {
+      type: 'input',
+      name: 'demo',
+      message: 'Demo URL:',
+    },
+  ]);
   const dependencies = [];
   while (true) {
     const { dependencyName } = await yo.prompt([
@@ -82,11 +94,13 @@ export async function prompting(yo) {
     authorEmail,
     authorName,
     authorUrl,
+    demo,
     dependencies,
     description,
     destination,
     features,
     homepageUrl,
+    installation,
     keywords,
     license,
     packageName,
