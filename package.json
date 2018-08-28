@@ -15,9 +15,12 @@
   ],
   "scripts": {
     "build:e2e": "npm run build && npm run e2e",
+    "build:templates:app": "shx cp -Rf src/app/templates/ generators/app/templates/",
+    "build:templates:ignore": "shx cp -Rf src/ignore/templates/ generators/ignore/templates/",
+    "build:templates": "npm run build:templates:app && npm run build:templates:ignore",
     "build:test:e2e": "npm run build && npm test && npm run e2e",
     "build:test": "npm run build && npm test",
-    "build": "tsc && npm run sync:templates",
+    "build": "npm run clean:dist && tsc && npm run build:templates",
     "ci": "npm run lint && npm run build:test:e2e",
     "clean:dist": "shx rm -rf generators",
     "clean:temp": "shx rm -rf temp",
