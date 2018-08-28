@@ -55,10 +55,34 @@ export async function prompting(yo) {
     if (feature === '') break;
     features.push(feature);
   }
+  const dependencies = [];
+  while (true) {
+    const { dependencyName } = await yo.prompt([
+      {
+        type: 'input',
+        name: 'dependencyName',
+        message: 'Dependency:',
+      },
+    ]);
+    if (dependencyName === '') break;
+    const { dependencyUrl } = await yo.prompt([
+      {
+        type: 'input',
+        name: 'dependencyUrl',
+        message: 'Dependency URL:',
+        default: 'https://example.com',
+      },
+    ]);
+    dependencies.push({
+      name: dependencyName,
+      url: dependencyUrl,
+    });
+  }
   yo.answers = {
     authorEmail,
     authorName,
     authorUrl,
+    dependencies,
     description,
     destination,
     features,
