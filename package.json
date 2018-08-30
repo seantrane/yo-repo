@@ -11,7 +11,13 @@
     "generators"
   ],
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "yeoman",
+    "generator",
+    "yo repo",
+    "yo",
+    "repo",
+    "repository"
   ],
   "scripts": {
     "build:e2e": "npm run build && npm run e2e",
