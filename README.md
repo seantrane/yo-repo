@@ -10,6 +10,7 @@
   - [Features](#features)
 - [Install](#install)
 - [Usage](#usage)
+  - [Quickstart](#quickstart)
 - [Support](#support)
 - [Contributing](#contributing)
 - [Changelog](#changelog)
@@ -43,10 +44,12 @@ npm install -g generator-repo
 
 ## Usage <a id="usage"></a>
 
-### Quickstart
+### Quickstart <a id="quickstart"></a>
+
+Run _Yo Repo!_ from your project directory:
 
 ```sh
-cd <path-to-your-project-directory>
+cd path/to/your/project/directory
 yo repo
 ```
 
