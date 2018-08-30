@@ -11,6 +11,7 @@
 - [Install](#install)
 - [Usage](#usage)
   - [Quickstart](#quickstart)
+  - [Instructions](#instructions)
 - [Support](#support)
 - [Contributing](#contributing)
 - [Changelog](#changelog)
@@ -53,7 +54,28 @@ cd path/to/your/project/directory
 yo repo
 ```
 
-### CLI
+### Instructions <a id="instructions"></a>
+
+_Yo Repo!_ is developed using what Yeoman calls [_composability_](http://yeoman.io/authoring/composability.html), described as; _"a way to combine smaller parts to make one large thing"_. _Yo Repo!_ is comprised of many sub-generators that are assembled into _recipes_ based on individual requirements. These sub-generators can be called individually and even reused outside of the context of _Yo Repo!_
+
+#### Sub-generators
+
+- [x] **Git Init**: `yo repo gitinit`
+- [ ] **Package**: `yo repo package`
+- [x] **License**: `yo repo license`
+- [x] **Readme**: `yo repo readme`
+  - [x] Badges/shields
+- [x] **Contributing**: `yo repo contributing`
+- [x] **Roadmap**: `yo repo roadmap`
+- [x] **Continuous Integration**: `yo repo ci`
+  - [x] Travis CI
+- [ ] **Dependencies**: `yo repo deps`
+  - [ ] Angular
+  - [ ] Express
+  - [ ] React
+  - [ ] TypeScript
+
+### Command-line Interface (CLI) <a id="cli"></a>
 
 ```sh
 # TBD
