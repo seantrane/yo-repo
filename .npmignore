@@ -3,6 +3,7 @@
 !README.md
 !/generators
 .bowerrc
+.editorconfig
 .github
 .markdownlint.yaml
 .npmrc
