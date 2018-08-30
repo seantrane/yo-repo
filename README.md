@@ -62,7 +62,7 @@ _Yo Repo!_ is developed using what Yeoman calls [_composability_](http://yeoman.
 
 #### Sub-generators
 
-- [x] **Git Init**: `yo repo gitinit`
+- [ ] **Git Init**: `yo repo gitinit`
 - [ ] **Package**: `yo repo package`
 - [x] **License**: `yo repo license`
 - [x] **Readme**: `yo repo readme`
