@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## [1.0.1](https://github.com/seantrane/yo-repo/compare/v1.0.0...v1.0.1) (2018-08-30)
+
+
+### Bug Fixes
+
+* **readme:** fix npm badge urls ([8dc5076](https://github.com/seantrane/yo-repo/commit/8dc5076))
+
 # 1.0.0 (2018-08-30)
 
 
