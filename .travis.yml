@@ -21,7 +21,9 @@ install:
 stages:
   - test
   - name: deploy
-    if: branch = master
+    if: repo = seantrane/yo-repo
+        AND type != pull_request
+        AND branch = master
 jobs:
   include:
     - stage: test
