@@ -12,6 +12,7 @@
 - [Usage](#usage)
   - [Quickstart](#quickstart)
   - [Instructions](#instructions)
+  - [Command-line Interface](#cli)
 - [Support](#support)
 - [Contributing](#contributing)
 - [Changelog](#changelog)
@@ -78,10 +79,24 @@ _Yo Repo!_ is developed using what Yeoman calls [_composability_](http://yeoman.
 ### Command-line Interface (CLI) <a id="cli"></a>
 
 ```sh
-# TBD
-```
+# CLI Help
+yo repo --help
 
-> :point_up: _more instructions coming soon._
+# Run Yo Repo!
+yo repo
+
+# Run Yo Repo! sub-generator
+# yo repo <generator>
+yo repo readme
+
+# Run a set of Yo Repo! sub-generators
+# yo repo <generator> <generator> ...
+yo repo license readme contributing
+
+# CLI Help for sub-generators
+# yo repo:<generator> --help
+yo repo:readme --help
+```
 
 ---
 
