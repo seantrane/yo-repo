@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## [1.0.2](https://github.com/seantrane/yo-repo/compare/v1.0.1...v1.0.2) (2018-08-30)
+
+
+### Bug Fixes
+
+* **readme:** untick gitinit, it hasn't been released yet ([9ddb278](https://github.com/seantrane/yo-repo/commit/9ddb278))
+
 ## [1.0.1](https://github.com/seantrane/yo-repo/compare/v1.0.0...v1.0.1) (2018-08-30)
 
 
