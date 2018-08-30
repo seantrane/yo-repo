@@ -102,9 +102,9 @@ yo repo:readme --help
 
 ## Support <a id="support"></a>
 
-Submit an [issue](https://github.com/seantrane/yo-repo/issues/new)
+[Submit an issue](https://github.com/seantrane/yo-repo/issues/new), in which you should provide as much detail as necessary for your issue.
 
-## Contribute <a id="contribute"></a>
+## Contributing <a id="contributing"></a>
 
 Contributions are always appreciated. Read [CONTRIBUTING.md](https://github.com/seantrane/yo-repo/blob/master/CONTRIBUTING.md) documentation to learn more.
 
