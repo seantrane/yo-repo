@@ -48,6 +48,7 @@
     "clui": "^0.3.6",
     "configstore": "^4.0.0",
     "date-fns": "^1.29.0",
+    "empty-dir": "^1.0.0",
     "figlet": "^1.2.0",
     "generator-license": "^5.4.0",
     "parse-git-config": "^2.0.3",
