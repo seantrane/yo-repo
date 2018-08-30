@@ -1,4 +1,4 @@
-![Yo Repo! A Yeoman generator for awesome repositories](https://raw.githubusercontent.com/seantrane/yo-repo/master/src/_resources/header.png)
+[![Yo Repo! A Yeoman generator for awesome repositories](https://raw.githubusercontent.com/seantrane/yo-repo/master/src/_resources/header.png)](https://github.com/seantrane/yo-repo#readme)
 
 [![Build Status](https://travis-ci.com/seantrane/yo-repo.svg?branch=master)](https://travis-ci.com/seantrane/yo-repo) [![Dependencies Status](https://david-dm.org/seantrane/yo-repo/status.svg)](https://david-dm.org/seantrane/yo-repo) [![devDependencies Status](https://david-dm.org/seantrane/yo-repo/dev-status.svg)](https://david-dm.org/seantrane/yo-repo?type=dev) [![Greenkeeper badge](https://badges.greenkeeper.io/seantrane/yo-repo.svg)](https://greenkeeper.io/) [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
