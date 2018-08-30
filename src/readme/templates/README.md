@@ -92,7 +92,7 @@ See a [demo](<%= demo %>)
 
 ## Support <a id="support"></a>
 
-Submit an [issue](<%= repositoryUrl %>/issues/new)
+[Submit an issue](<%= repositoryUrl %>/issues/new), in which you should provide as much detail as necessary for your issue.
 
 ## Contributing <a id="contributing"></a>
 
