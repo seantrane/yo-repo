@@ -7,6 +7,7 @@
 ## Table of Contents
 
 - [About the Generator](#about)
+  - [Features](#features)
 - [Install](#install)
 - [Usage](#usage)
 - [Support](#support)
@@ -17,7 +18,14 @@
 
 ## About the Generator <a id="about"></a>
 
-_To be written._
+> _Yo Repo!_ is a [Yeoman](http://yeoman.io) generator, used for generating awesome repositories that exhibit the highest standards of repository management.
+
+### Features <a id="features"></a>
+
+- Complete, one-stop solution for starting any repo/package/etc.
+- Opinionated, implementing common standards and [best practices](https://bestpractices.coreinfrastructure.org).
+- Helpful, friendly and informative CLI prompts.
+- Pre-fill of prompt values using existing resources.
 
 ## Install <a id="install"></a>
 
