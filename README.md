@@ -29,6 +29,14 @@
 
 ## Install <a id="install"></a>
 
+Install, or update, [Yeoman](http://yeoman.io):
+
+```sh
+npm install -g yo
+```
+
+Install _Yo Repo!_ generator:
+
 ```sh
 npm install -g generator-repo
 ```
