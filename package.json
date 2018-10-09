@@ -72,7 +72,7 @@
     "@types/chai": "^4.1.4",
     "@types/configstore": "^2.1.1",
     "@types/figlet": "^1.2.0",
-    "@types/lodash": "^4.14.116",
+    "@types/lodash": "^4.14.117",
     "@types/mocha": "^5.2.5",
     "@types/node": "^10.5.7",
     "@types/parse-git-config": "^2.0.1",
