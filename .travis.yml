@@ -35,7 +35,7 @@ jobs:
         - if [[ $TRAVIS_BRANCH =~ "greenkeeper*" ]]; then
             greenkeeper-lockfile-update
           else
-            :
+            echo "greenkeeper-lockfile-update skipped"
           fi
         - commitlint-travis
         - if [[ $TRAVIS_BRANCH = "master" ]] || [[ $TRAVIS_TYPE = "pull_request" ]]; then
@@ -46,12 +46,12 @@ jobs:
         - if [[ $TRAVIS_BRANCH = "master" ]] || [[ $TRAVIS_TYPE = "pull_request" ]]; then
             sonar-scanner
           else
-            :
+            echo "sonar-scanner skipped"
           fi
         - if [[ $TRAVIS_BRANCH =~ "greenkeeper*" ]]; then
             greenkeeper-lockfile-upload
           else
-            :
+            echo "greenkeeper-lockfile-upload skipped"
           fi
     - stage: deploy
       name: 'Publish and Release'
