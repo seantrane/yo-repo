@@ -32,27 +32,17 @@ jobs:
     - stage: test
       name: 'Checks and Tests'
       script:
-        - if [[ $TRAVIS_BRANCH =~ "greenkeeper*" ]]; then
-            greenkeeper-lockfile-update
-          else
-            echo "greenkeeper-lockfile-update skipped"
-          fi
+        - if: branch =~ /^greenkeeper.*$/
+          greenkeeper-lockfile-update
         - commitlint-travis
-        - if [[ $TRAVIS_BRANCH = "master" ]] || [[ $TRAVIS_TYPE = "pull_request" ]]; then
-            travis_retry github-label-sync -a "$GH_TOKEN" -l 'https://git.io/fAe5i' seantrane/yo-repo
-          fi
+        - if: branch = master OR type = pull_request
+          travis_retry github-label-sync -a "$GH_TOKEN" -l 'https://git.io/fAe5i' seantrane/yo-repo
         - npm run lint
         - npm run build
-        - if [[ $TRAVIS_BRANCH = "master" ]] || [[ $TRAVIS_TYPE = "pull_request" ]]; then
-            sonar-scanner
-          else
-            echo "sonar-scanner skipped"
-          fi
-        - if [[ $TRAVIS_BRANCH =~ "greenkeeper*" ]]; then
-            greenkeeper-lockfile-upload
-          else
-            echo "greenkeeper-lockfile-upload skipped"
-          fi
+        - if: branch = master OR type = pull_request
+          sonar-scanner
+        - if: branch =~ /^greenkeeper.*$/
+          greenkeeper-lockfile-upload
     - stage: deploy
       name: 'Publish and Release'
       script:
