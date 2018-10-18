@@ -32,17 +32,13 @@ jobs:
     - stage: test
       name: 'Checks and Tests'
       script:
-        - if: branch =~ /^greenkeeper.*$/
-          greenkeeper-lockfile-update
+        - greenkeeper-lockfile-update
+        - travis_retry github-label-sync -a "$GH_TOKEN" -l 'https://git.io/fAe5i' seantrane/yo-repo
         - commitlint-travis
-        - if: branch = master OR type = pull_request
-          travis_retry github-label-sync -a "$GH_TOKEN" -l 'https://git.io/fAe5i' seantrane/yo-repo
         - npm run lint
         - npm run build
-        - if: branch = master OR type = pull_request
-          sonar-scanner
-        - if: branch =~ /^greenkeeper.*$/
-          greenkeeper-lockfile-upload
+        - sonar-scanner
+        - greenkeeper-lockfile-upload
     - stage: deploy
       name: 'Publish and Release'
       script:
