@@ -34,6 +34,8 @@ jobs:
       script:
         - if [[ $TRAVIS_BRANCH =~ "greenkeeper*" ]]; then
             greenkeeper-lockfile-update
+          else
+            :
           fi
         - commitlint-travis
         - if [[ $TRAVIS_BRANCH = "master" ]] || [[ $TRAVIS_TYPE = "pull_request" ]]; then
@@ -43,9 +45,13 @@ jobs:
         - npm run build
         - if [[ $TRAVIS_BRANCH = "master" ]] || [[ $TRAVIS_TYPE = "pull_request" ]]; then
             sonar-scanner
+          else
+            :
           fi
         - if [[ $TRAVIS_BRANCH =~ "greenkeeper*" ]]; then
             greenkeeper-lockfile-upload
+          else
+            :
           fi
     - stage: deploy
       name: 'Publish and Release'
