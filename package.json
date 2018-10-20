@@ -35,7 +35,6 @@
     "clean:dist": "shx rm -rf generators",
     "clean:temp": "shx rm -rf temp",
     "clean": "shx rm -rf generators temp",
-    "commitmsg": "commitlint -E GIT_PARAMS",
     "coverage": "istanbul cover node_modules/mocha/bin/_mocha -- --opts mocha.opts",
     "docs": "typedoc --options typedoc.json --exclude '**/*.spec.ts' ./src/",
     "e2e": "shx rm -rf temp && shx mkdir temp && (cd temp && yo repo) || exit 1",
@@ -113,6 +112,11 @@
     "extends": [
       "@commitlint/config-conventional"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   },
   "release": {
     "verifyConditions": [
