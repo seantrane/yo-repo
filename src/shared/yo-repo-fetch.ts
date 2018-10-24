@@ -50,7 +50,7 @@ export class Fetch {
    */
   authorEmail(defaultEmail?: string): string {
     const author = this._getFromPackage('author.name', this._getFromPackage('author', null));
-    let email = this._getFromPackage('author.email', undefined);
+    let email = this._getFromPackage('author.email');
     if (isString(author) && typeof email === 'undefined') {
       email = (author.match(/<[^@]+.+(?=>)/g) || []).join('').substr(1);
     }
