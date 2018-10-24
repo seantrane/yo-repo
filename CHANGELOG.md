@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## [1.0.5](https://github.com/seantrane/yo-repo/compare/v1.0.4...v1.0.5) (2018-10-24)
+
+
+### Bug Fixes
+
+* improve prompt-message formatting, export as function ([f3c9773](https://github.com/seantrane/yo-repo/commit/f3c9773))
+* log message at start of file-writing task ([35fb9d9](https://github.com/seantrane/yo-repo/commit/35fb9d9))
+* resolve some duplicated prompts ([3392c5b](https://github.com/seantrane/yo-repo/commit/3392c5b))
+
 ## [1.0.4](https://github.com/seantrane/yo-repo/compare/v1.0.3...v1.0.4) (2018-10-24)
 
 
