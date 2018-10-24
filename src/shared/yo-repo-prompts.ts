@@ -26,6 +26,26 @@ export interface YoRepoPromptsInterface {
 }
 
 /**
+ * Output a prompt message using Yo Repo! style
+ *
+ * @param {string} question Human-friendly question
+ * @param {string} [key] Option/Prompt name
+ * @param {string} [hint] Helpful hints, examples
+ * @returns {string} Yo Repo! formatted prompt message
+ * @memberof YoRepoPrompts
+ */
+export function promptMessage(question: string, key?: string, hint?: string): string {
+  let msg = chalk.reset.magentaBright('\n\n> ' + question) + '\n\n  ';
+  if (typeof hint !== 'undefined') {
+    msg += chalk.reset.gray.italic(hint) + '\n\n  ';
+  }
+  if (typeof key !== 'undefined') {
+    msg += chalk.reset.white.bold.underline(key);
+  }
+  return msg;
+}
+
+/**
  * Yo Repo Prompts!
  *
  * A prompt support utility for Yo Repo!
@@ -50,6 +70,8 @@ export class YoRepoPrompts implements YoRepoPromptsInterface {
   repositoryUrl?: string;
   username?: string;
   version?: string;
+
+  _prompt = promptMessage;
 
   constructor(public yo: YoRepoInterface) {}
 
@@ -101,27 +123,6 @@ export class YoRepoPrompts implements YoRepoPromptsInterface {
   }
 
   /**
-   * Output a prompt message using Yo Repo! style
-   *
-   * @param {string} question Human-friendly question
-   * @param {string} [key] Option/Prompt name
-   * @param {string} [hint] Helpful hints, examples
-   * @returns {string} Yo Repo! formatted prompt message
-   * @memberof YoRepoPrompts
-   */
-  _prompt(question: string, key?: string, hint?: string): string {
-    let msg = chalk.reset.green('\n:\n');
-    msg += chalk.reset.magentaBright(question);
-    if (typeof hint !== 'undefined') {
-      msg += '\n\n' + chalk.reset.gray.italic(hint) + '\n';
-    }
-    if (typeof key !== 'undefined') {
-      msg += '\n' + chalk.reset.white.bold.underline(key);
-    }
-    return msg;
-  }
-
-  /**
    * Author Email Option/Prompt
    *
    * @returns {Promise<any>}
@@ -135,7 +136,7 @@ export class YoRepoPrompts implements YoRepoPromptsInterface {
         'What is the email address of the repo/package author?',
         'Author Email:',
         'Example: <%= user_name %>@users.noreply.github.com\n' +
-        'Reference: require(package.json).author.email',
+        '  Reference: require(package.json).author.email',
       ),
     });
   }
@@ -154,7 +155,7 @@ export class YoRepoPrompts implements YoRepoPromptsInterface {
         'Who is the author of this repo/package?',
         'Author Name:',
         'Example: ' + `@${this.username}\n` +
-        'Reference: require(package.json).author.name',
+        '  Reference: require(package.json).author.name',
       ),
       default: fetch.authorName(`@${this.username}`),
     });
@@ -175,7 +176,7 @@ export class YoRepoPrompts implements YoRepoPromptsInterface {
         'What is the URL of the repo/package author\'s website?',
         'Author URL:',
         'Example: https://github.com/<%= user_name %>\n' +
-        'Reference: require(package.json).author.url',
+        '  Reference: require(package.json).author.url',
       ),
     });
   }
@@ -258,7 +259,7 @@ export class YoRepoPrompts implements YoRepoPromptsInterface {
         'What is the homepage URL of this repo/package?',
         'Homepage URL:',
         'Example: https://github.com/<%= profile_name %>/<%= repository_name %>#readme\n' +
-        'Reference: require(package.json).homepage',
+        '  Reference: require(package.json).homepage',
       ),
       default: this.repositoryUrl + '#readme',
     });
@@ -278,8 +279,8 @@ export class YoRepoPrompts implements YoRepoPromptsInterface {
         'Which of the following licenses are best for your repo/package?',
         'Choose a License:',
         'Reference: require(package.json).license\n' +
-        'For private software, use; \'No License (Copyrighted)\' - UNLICENSED\n' +
-        'For more info; https://choosealicense.com',
+        '  For private software, use; \'No License (Copyrighted)\' - UNLICENSED\n' +
+        '  For more info; https://choosealicense.com',
       ),
       choices: [
         { name: 'MIT', value: 'MIT' },
@@ -315,9 +316,9 @@ export class YoRepoPrompts implements YoRepoPromptsInterface {
         'What is the name of your package?',
         'Package Name:',
         '- Slugified (e.g. snake-case)\n' +
-        '- Scoped, if applicable (e.g. @org/repo)\n\n' +
-        'Reference: require(package.json).name\n' +
-        'For more info; https://docs.npmjs.com/files/package.json#name',
+        '  - Scoped, if applicable (e.g. @org/repo)\n\n' +
+        '  Reference: require(package.json).name\n' +
+        '  For more info; https://docs.npmjs.com/files/package.json#name',
       ),
       default: fetch.packageName(),
     });
@@ -371,7 +372,7 @@ export class YoRepoPrompts implements YoRepoPromptsInterface {
         'What is the URL to this repository?',
         'Repository URL:',
         'Example: https://github.com/<%= profile_name %>/<%= repository_name %>\n' +
-        'Reference: require(package.json).repostiory.url',
+        '  Reference: require(package.json).repostiory.url',
       ),
       default: `https://github.com/${this.profileName}/${this.repositoryName}`,
     });
@@ -416,8 +417,8 @@ export class YoRepoPrompts implements YoRepoPromptsInterface {
         'What semantic-version will you initiate your repo/package at?',
         'Package Version:',
         'Example: \'1.0.0\', \'0.0.0\', \'0.0.0-development\', \n' +
-        'Reference: require(package.json).version\n' +
-        'For more info; https://semver.org',
+        '  Reference: require(package.json).version\n' +
+        '  For more info; https://semver.org',
       ),
       default: fetch.packageVersion('0.0.0'),
     });
