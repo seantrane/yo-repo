@@ -52,10 +52,17 @@ export async function prompting(yo) {
     username,
     version,
   };
+  const commonAnswers = {
+    destination: yo.answers.destination,
+    packageName: yo.answers.packageName,
+    profileName: yo.answers.profileName || yo.answers.username,
+    repositoryName: yo.answers.repositoryName || yo.answers.packageName,
+    repositoryUrl: yo.answers.repositoryUrl,
+    username: yo.answers.username,
+};
   if (yo.options['generators'].indexOf('ignore') !== -1) {
     yo.composeWith('repo:ignore', {
-      packageName: yo.answers.packageName,
-      destination: yo.answers.destination,
+      ...commonAnswers,
     });
   }
   if (yo.options['generators'].indexOf('license') !== -1) {
@@ -69,52 +76,32 @@ export async function prompting(yo) {
   }
   if (yo.options['generators'].indexOf('readme') !== -1) {
     yo.composeWith('repo:readme', {
+      ...commonAnswers,
       authorEmail: yo.answers.authorEmail,
       authorName: yo.answers.authorName,
       authorUrl: yo.answers.authorUrl,
       dependencies: yo.answers.dependencies,
       description: yo.answers.description,
-      destination: yo.answers.destination,
       features: yo.answers.features,
       homepageUrl: yo.answers.homepageUrl,
       license: yo.answers.license,
-      packageName: yo.answers.packageName,
-      profileName: yo.answers.profileName || yo.answers.username,
-      repositoryName: yo.answers.repositoryName || yo.answers.packageName,
-      repositoryUrl: yo.answers.repositoryUrl,
-      username: yo.answers.username,
     });
   }
   if (yo.options['generators'].indexOf('contributing') !== -1) {
     yo.composeWith('repo:contributing', {
-      destination: yo.answers.destination,
-      packageName: yo.answers.packageName,
-      profileName: yo.answers.profileName || yo.answers.username,
-      repositoryName: yo.answers.repositoryName || yo.answers.packageName,
-      repositoryUrl: yo.answers.repositoryUrl,
-      username: yo.answers.username,
+      ...commonAnswers,
     });
   }
   if (yo.options['generators'].indexOf('roadmap') !== -1) {
     yo.composeWith('repo:roadmap', {
-      destination: yo.answers.destination,
+      ...commonAnswers,
       features: yo.answers.features,
-      packageName: yo.answers.packageName,
-      profileName: yo.answers.profileName || yo.answers.username,
-      repositoryName: yo.answers.repositoryName || yo.answers.packageName,
-      repositoryUrl: yo.answers.repositoryUrl,
-      username: yo.answers.username,
     });
   }
   if (yo.options['generators'].indexOf('ci') !== -1) {
     yo.composeWith('repo:ci', {
+      ...commonAnswers,
       // cicd: yo.answers.cicd,
-      destination: yo.answers.destination,
-      packageName: yo.answers.packageName,
-      profileName: yo.answers.profileName || yo.answers.username,
-      repositoryName: yo.answers.repositoryName || yo.answers.packageName,
-      repositoryUrl: yo.answers.repositoryUrl,
-      username: yo.answers.username,
     });
   }
   yo.context = { ...yo.context, ...yo.answers };
