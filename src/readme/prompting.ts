@@ -38,35 +38,11 @@ export async function prompting(yo) {
       message: 'Installation command:',
     },
   ]);
-  const dependencies = [];
-  while (true) {
-    const { dependencyName } = await yo.prompt([
-      {
-        type: 'input',
-        name: 'dependencyName',
-        message: 'Dependency:',
-      },
-    ]);
-    if (dependencyName === '') break;
-    const { dependencyUrl } = await yo.prompt([
-      {
-        type: 'input',
-        name: 'dependencyUrl',
-        message: 'Dependency URL:',
-        default: 'https://example.com',
-      },
-    ]);
-    dependencies.push({
-      name: dependencyName,
-      url: dependencyUrl,
-    });
-  }
   yo.answers = {
     authorEmail,
     authorName,
     authorUrl,
     demoUrl,
-    dependencies,
     description,
     destination,
     homepageUrl,
@@ -82,6 +58,11 @@ export async function prompting(yo) {
     yo.answers.features = await YoRepoPrompts.featuresPrompt(yo);
   } else {
     yo.answers.features = yo.options['features'];
+  }
+  if (yo.options['dependencies'] === undefined) {
+    yo.answers.dependencies = await YoRepoPrompts.dependenciesPrompt(yo);
+  } else {
+    yo.answers.dependencies = yo.options['dependencies'];
   }
   yo.context = { ...yo.context, ...yo.answers };
 }

@@ -79,6 +79,40 @@ export class YoRepoPrompts implements YoRepoPromptsInterface {
   constructor(public yo: YoRepoInterface) {}
 
   /**
+   * Dependencies Option/Prompt
+   *
+   * @returns {Promise<any>}
+   * @memberof YoRepoPrompts
+   */
+  static async dependenciesPrompt(yo: YoRepoInterface): Promise<Array<Promise<Answers>>> {
+    const dependencies = [];
+    yo.log(promptMessage('What dependencies are required by this repo/package?'));
+    while (true) {
+      const { dependencyName } = await yo.prompt([
+        {
+          type: 'input',
+          name: 'dependencyName',
+          message: 'Dependency:',
+        },
+      ]);
+      if (dependencyName === '') break;
+      const { dependencyUrl } = await yo.prompt([
+        {
+          type: 'input',
+          name: 'dependencyUrl',
+          message: 'Dependency URL:',
+          default: 'https://example.com',
+        },
+      ]);
+      dependencies.push({
+        name: dependencyName,
+        url: dependencyUrl,
+      });
+    }
+    return dependencies;
+  }
+
+  /**
    * Features Option/Prompt
    *
    * @returns {Promise<any>}

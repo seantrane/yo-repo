@@ -40,29 +40,7 @@ export async function prompting(yo) {
       message: 'Installation command:',
     },
   ]);
-  const dependencies = [];
-  while (true) {
-    const { dependencyName } = await yo.prompt([
-      {
-        type: 'input',
-        name: 'dependencyName',
-        message: 'Dependency:',
-      },
-    ]);
-    if (dependencyName === '') break;
-    const { dependencyUrl } = await yo.prompt([
-      {
-        type: 'input',
-        name: 'dependencyUrl',
-        message: 'Dependency URL:',
-        default: 'https://example.com',
-      },
-    ]);
-    dependencies.push({
-      name: dependencyName,
-      url: dependencyUrl,
-    });
-  }
+  const dependencies = await YoRepoPrompts.dependenciesPrompt(yo);
   yo.answers = {
     authorEmail,
     authorName,
