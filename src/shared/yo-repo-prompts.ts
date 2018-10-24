@@ -101,6 +101,29 @@ export class YoRepoPrompts implements YoRepoPromptsInterface {
     return features;
   }
 
+  /**
+   * Keywords Option/Prompt
+   *
+   * @returns {Promise<any>}
+   * @memberof YoRepoPrompts
+   */
+  static async keywordsPrompt(yo: YoRepoInterface): Promise<Array<Promise<Answers>>> {
+    const keywords = [];
+    yo.log(promptMessage('Are there keywords associated with this repo/package?'));
+    while (true) {
+      const { keyword } = await yo.prompt([
+        {
+          type: 'input',
+          name: 'keyword',
+          message: 'Keyword:',
+        },
+      ]);
+      if (keyword === '') break;
+      keywords.push(keyword);
+    }
+    return keywords;
+  }
+
   async prompt(prompts): Promise<YoRepoPromptsInterface> {
     const result: YoRepoPromptsInterface = {};
     if (!prompts || prompts.username) {
