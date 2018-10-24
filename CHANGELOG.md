@@ -1,5 +1,19 @@
 # CHANGELOG
 
+## [1.0.6](https://github.com/seantrane/yo-repo/compare/v1.0.5...v1.0.6) (2018-10-24)
+
+
+### Bug Fixes
+
+* add await keyword to copy-templates async functions ([31f989c](https://github.com/seantrane/yo-repo/commit/31f989c))
+* change incorrect prompt name for homepageUrl ([9f28415](https://github.com/seantrane/yo-repo/commit/9f28415))
+* change ordering of demo-url prompt ([82fd2df](https://github.com/seantrane/yo-repo/commit/82fd2df))
+* refactor demo-url prompt/context/template ([61f8e2f](https://github.com/seantrane/yo-repo/commit/61f8e2f))
+* refactor dependencies prompt/context/templates ([f19eef6](https://github.com/seantrane/yo-repo/commit/f19eef6))
+* refactor features prompt/context/templates ([f6532d0](https://github.com/seantrane/yo-repo/commit/f6532d0))
+* refactor installation prompt/context/templates ([9ea5490](https://github.com/seantrane/yo-repo/commit/9ea5490))
+* refactor keywords prompt/context/templates ([bf4dbd3](https://github.com/seantrane/yo-repo/commit/bf4dbd3))
+
 ## [1.0.5](https://github.com/seantrane/yo-repo/compare/v1.0.4...v1.0.5) (2018-10-24)
 
 
