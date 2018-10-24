@@ -300,7 +300,7 @@ export class YoRepoPrompts implements YoRepoPromptsInterface {
     if (!this.repositoryUrl) this.repositoryUrl = await this.repositoryUrlPrompt();
     return this.yo.optionOrPrompt({
       type: 'input',
-      name: 'homepage',
+      name: 'homepageUrl',
       message: this._prompt(
         'What is the homepage URL of this repo/package?',
         'Homepage URL:',
