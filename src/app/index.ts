@@ -1,6 +1,6 @@
 import { resolve as pathResolve } from 'path';
-import * as Base from 'yeoman-generator';
 
+import RepoBaseGenerator from '../shared/base-generator';
 import configuring from './configuring';
 import conflicts from './conflicts';
 import runDefault from './default';
@@ -10,7 +10,7 @@ import install from './install';
 import prompting from './prompting';
 import writing from './writing';
 
-export class RepoGenerator extends Base {
+export class RepoGenerator extends RepoBaseGenerator {
 
   constructor(args, opts) {
     super(args, opts);

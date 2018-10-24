@@ -1,14 +1,11 @@
 import { resolve as pathResolve } from 'path';
-import * as Base from 'yeoman-generator';
 
+import RepoBaseGenerator from '../shared/base-generator';
 import yoOptionOrPrompt from '../shared/yo-option-or-prompt';
 import prompting from './prompting';
 
-export class RepoReadmeGenerator extends Base {
+export class RepoReadmeGenerator extends RepoBaseGenerator {
 
-  answers: Base.Answers;
-  context: {};
-  optionOrPrompt: any;
 
   constructor(args, opts) {
     super(args, opts);
