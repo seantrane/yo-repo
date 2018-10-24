@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## [1.0.7](https://github.com/seantrane/yo-repo/compare/v1.0.6...v1.0.7) (2018-10-24)
+
+
+### Bug Fixes
+
+* remove redundant 'await' on non-promises ([0fc200e](https://github.com/seantrane/yo-repo/commit/0fc200e))
+
 ## [1.0.6](https://github.com/seantrane/yo-repo/compare/v1.0.5...v1.0.6) (2018-10-24)
 
 
