@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## [1.0.4](https://github.com/seantrane/yo-repo/compare/v1.0.3...v1.0.4) (2018-10-24)
+
+
+### Bug Fixes
+
+* **refactor:** move/consolidate template scripting ([4ab9c9d](https://github.com/seantrane/yo-repo/commit/4ab9c9d))
+
 ## [1.0.3](https://github.com/seantrane/yo-repo/compare/v1.0.2...v1.0.3) (2018-08-31)
 
 
