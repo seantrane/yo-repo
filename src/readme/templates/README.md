@@ -42,7 +42,7 @@ if (typeof badges !== 'undefined' && badges.length > 0) {
 ## Table of Contents
 
 - [About](#about)<% if (typeof features !== 'undefined' && features.length > 0) { %>
-  - [Features](#features)<% } %><% if (typeof demo !== 'undefined' && demo.length > 0) { %>
+  - [Features](#features)<% } %><% if (typeof demoUrl !== 'undefined' && demoUrl.length > 0) { %>
   - [Demo](#demo)<% } %><% if (typeof installation !== 'undefined' && installation.length > 0) { %>
 - [Install](#install)<% } %><% if (typeof dependencies !== 'undefined' && dependencies.length > 0) { %>
   - [Dependencies](#dependencies)<% } %>
@@ -60,10 +60,10 @@ if (typeof badges !== 'undefined' && badges.length > 0) {
 
 <% for (var i in features) { %>
 - <%= features[i] %><% } %>
-<% } %><% if (typeof demo !== 'undefined' && demo.length > 0) { %>
+<% } %><% if (typeof demoUrl !== 'undefined' && demoUrl.length > 0) { %>
 ### Demo <a id="demo"></a>
 
-See a [demo](<%= demo %>)
+See a [demo](<%= demoUrl %>)
 
 <% } %>
 <% if (typeof installation !== 'undefined' && installation.length > 0) { %>

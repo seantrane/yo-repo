@@ -13,6 +13,7 @@ export interface YoRepoPromptsInterface {
   authorName?: string;
   authorUrl?: string;
   cicd?: string;
+  demoUrl?: string;
   description?: string;
   destination?: string;
   homepageUrl?: string;
@@ -60,6 +61,7 @@ export class YoRepoPrompts implements YoRepoPromptsInterface {
   authorName?: string;
   authorUrl?: string;
   cicd?: string;
+  demoUrl?: string;
   description?: string;
   destination?: string;
   homepageUrl?: string;
@@ -88,6 +90,9 @@ export class YoRepoPrompts implements YoRepoPromptsInterface {
     }
     if (!prompts || prompts.packageName) {
       this.packageName = result.packageName = await this.packageNamePrompt();
+    }
+    if (!prompts || prompts.demoUrl) {
+      this.demoUrl = result.demoUrl = await this.demoUrlPrompt();
     }
     if (!prompts || prompts.destination) {
       this.destination = result.destination = await this.destinationPrompt();
@@ -202,6 +207,23 @@ export class YoRepoPrompts implements YoRepoPromptsInterface {
         { name: 'Jenkins', value: 'jenkins' },
       ],
       default: 'Travis CI',
+    });
+  }
+
+  /**
+   * Demo URL Option/Prompt
+   *
+   * @returns {Promise<any>}
+   * @memberof YoRepoPrompts
+   */
+  async demoUrlPrompt(): Promise<any> {
+    return this.yo.optionOrPrompt({
+      type: 'input',
+      name: 'demoUrl',
+      message: this._prompt(
+        'Is there a URL for the demonstration of this repo/package?',
+        'Demo URL:',
+      ),
     });
   }
 

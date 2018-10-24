@@ -15,6 +15,7 @@ export async function prompting(yo) {
     authorUrl,
     repositoryUrl,
     homepageUrl,
+    demoUrl,
   } = await new YoRepoPrompts(yo).prompt({
     username: true,
     profileName: true,
@@ -28,6 +29,7 @@ export async function prompting(yo) {
     authorUrl: true,
     repositoryUrl: true,
     homepageUrl: true,
+    demoUrl: true,
   });
   const features = [];
   while (true) {
@@ -41,16 +43,11 @@ export async function prompting(yo) {
     if (feature === '') break;
     features.push(feature);
   }
-  const { installation, demo } = await yo.prompt([
+  const { installation } = await yo.prompt([
     {
       type: 'input',
       name: 'installation',
       message: 'Installation command:',
-    },
-    {
-      type: 'input',
-      name: 'demo',
-      message: 'Demo URL:',
     },
   ]);
   const dependencies = [];
@@ -80,7 +77,7 @@ export async function prompting(yo) {
     authorEmail,
     authorName,
     authorUrl,
-    demo,
+    demoUrl,
     dependencies,
     description,
     destination,
