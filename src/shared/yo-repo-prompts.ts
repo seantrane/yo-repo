@@ -18,6 +18,7 @@ export interface YoRepoPromptsInterface {
   description?: string;
   destination?: string;
   homepageUrl?: string;
+  installation?: string;
   license?: string;
   packageName?: string;
   profileName?: string;
@@ -66,6 +67,7 @@ export class YoRepoPrompts implements YoRepoPromptsInterface {
   description?: string;
   destination?: string;
   homepageUrl?: string;
+  installation?: string;
   license?: string;
   packageName?: string;
   profileName?: string;
@@ -201,6 +203,9 @@ export class YoRepoPrompts implements YoRepoPromptsInterface {
     }
     if (!prompts || prompts.homepageUrl) {
       this.homepageUrl = result.homepageUrl = await this.homepageUrlPrompt();
+    }
+    if (!prompts || prompts.installation) {
+      this.installation = result.installation = await this.installationPrompt();
     }
     if (!prompts || prompts.cicd) {
       this.cicd = result.cicd = await this.cicdPrompt();
@@ -365,6 +370,24 @@ export class YoRepoPrompts implements YoRepoPromptsInterface {
         '  Reference: require(package.json).homepage',
       ),
       default: this.repositoryUrl + '#readme',
+    });
+  }
+
+  /**
+   * Installation command Option/Prompt
+   *
+   * @returns {Promise<any>}
+   * @memberof YoRepoPrompts
+   */
+  async installationPrompt(): Promise<any> {
+    return this.yo.optionOrPrompt({
+      type: 'input',
+      name: 'installation',
+      message: this._prompt(
+        'Is there an installation command for this repo/package?',
+        'Installation command:',
+        'Example: npm install',
+      ),
     });
   }
 

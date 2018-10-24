@@ -33,13 +33,6 @@ export async function prompting(yo) {
   });
   const keywords = await YoRepoPrompts.keywordsPrompt(yo);
   const features = await YoRepoPrompts.featuresPrompt(yo);
-  const { installation } = await yo.prompt([
-    {
-      type: 'input',
-      name: 'installation',
-      message: 'Installation command:',
-    },
-  ]);
   const dependencies = await YoRepoPrompts.dependenciesPrompt(yo);
   yo.answers = {
     authorEmail,
@@ -50,7 +43,6 @@ export async function prompting(yo) {
     destination,
     features,
     homepageUrl,
-    installation,
     keywords,
     license,
     packageName,
@@ -85,7 +77,6 @@ export async function prompting(yo) {
       destination: yo.answers.destination,
       features: yo.answers.features,
       homepageUrl: yo.answers.homepageUrl,
-      installation: yo.answers.installation,
       license: yo.answers.license,
       packageName: yo.answers.packageName,
       profileName: yo.answers.profileName || yo.answers.username,

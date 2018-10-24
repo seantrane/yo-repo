@@ -16,6 +16,7 @@ export async function prompting(yo) {
     repositoryUrl,
     homepageUrl,
     demoUrl,
+    installation,
   } = await new YoRepoPrompts(yo).prompt({
     username: true,
     profileName: true,
@@ -30,14 +31,8 @@ export async function prompting(yo) {
     repositoryUrl: true,
     homepageUrl: true,
     demoUrl: true,
+    installation: true,
   });
-  const { installation } = await yo.prompt([
-    {
-      type: 'input',
-      name: 'installation',
-      message: 'Installation command:',
-    },
-  ]);
   yo.answers = {
     authorEmail,
     authorName,
