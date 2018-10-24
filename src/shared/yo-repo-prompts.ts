@@ -36,8 +36,6 @@ export interface YoRepoPromptsInterface {
  */
 export class YoRepoPrompts implements YoRepoPromptsInterface {
 
-  yo: YoRepoInterface;
-
   authorEmail?: string;
   authorName?: string;
   authorUrl?: string;
@@ -53,9 +51,7 @@ export class YoRepoPrompts implements YoRepoPromptsInterface {
   username?: string;
   version?: string;
 
-  constructor(yo) {
-    this.yo = yo;
-  }
+  constructor(public yo: YoRepoInterface) {}
 
   async prompt(prompts): Promise<YoRepoPromptsInterface> {
     const result: YoRepoPromptsInterface = {};
