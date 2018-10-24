@@ -1,6 +1,7 @@
 import { resolve as pathResolve } from 'path';
 
 import RepoBaseGenerator from '../shared/base-generator';
+import copyTemplates from '../shared/copy-templates';
 import yoOptionOrPrompt from '../shared/yo-option-or-prompt';
 import prompting from './prompting';
 
@@ -30,13 +31,7 @@ export class RepoContributingGenerator extends RepoBaseGenerator {
   }
 
   async writing() {
-    this.templates.forEach((path) => {
-      this.fs.copyTpl(
-        this.templatePath(path),
-        this.destinationPath(path),
-        this.context,
-      );
-    });
+    copyTemplates(this);
   }
 
 }

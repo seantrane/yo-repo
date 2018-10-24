@@ -1,6 +1,7 @@
 import { resolve as pathResolve } from 'path';
 
 import RepoBaseGenerator from '../shared/base-generator';
+import copyTpl from '../shared/copy-tpl';
 import yoOptionOrPrompt from '../shared/yo-option-or-prompt';
 import prompting from './prompting';
 
@@ -29,11 +30,7 @@ export class RepoCiGenerator extends RepoBaseGenerator {
 
   async writing() {
     if (this.answers.cicd.indexOf('travis') !== -1) {
-      this.fs.copyTpl(
-        this.templatePath('.travis.yml'),
-        this.destinationPath('.travis.yml'),
-        this.context,
-      );
+      copyTpl(this, '.travis.yml');
     }
   }
 
