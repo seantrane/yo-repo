@@ -112,6 +112,7 @@ export async function prompting(yo) {
   };
   if (yo.options['generators'].indexOf('ignore') !== -1) {
     yo.composeWith('repo:ignore', {
+      packageName: yo.answers.packageName,
       destination: yo.answers.destination,
     });
   }
@@ -158,13 +159,18 @@ export async function prompting(yo) {
     yo.composeWith('repo:roadmap', {
       destination: yo.answers.destination,
       features: yo.answers.features,
+      packageName: yo.answers.packageName,
+      profileName: yo.answers.profileName || yo.answers.username,
+      repositoryName: yo.answers.repositoryName || yo.answers.packageName,
       repositoryUrl: yo.answers.repositoryUrl,
+      username: yo.answers.username,
     });
   }
   if (yo.options['generators'].indexOf('ci') !== -1) {
     yo.composeWith('repo:ci', {
       // cicd: yo.answers.cicd,
       destination: yo.answers.destination,
+      packageName: yo.answers.packageName,
       profileName: yo.answers.profileName || yo.answers.username,
       repositoryName: yo.answers.repositoryName || yo.answers.packageName,
       repositoryUrl: yo.answers.repositoryUrl,
