@@ -6,6 +6,9 @@ import prompting from './prompting';
 
 export class RepoCiGenerator extends RepoBaseGenerator {
 
+  templates = [
+    '.travis.yml',
+  ];
 
   constructor(args, opts) {
     super(args, opts);

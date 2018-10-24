@@ -6,6 +6,9 @@ import prompting from './prompting';
 
 export class RepoRoadmapGenerator extends RepoBaseGenerator {
 
+  templates = [
+    'ROADMAP.md',
+  ];
 
   constructor(args, opts) {
     super(args, opts);
@@ -25,11 +28,13 @@ export class RepoRoadmapGenerator extends RepoBaseGenerator {
   }
 
   async writing() {
-    this.fs.copyTpl(
-      this.templatePath('ROADMAP.md'),
-      this.destinationPath('ROADMAP.md'),
-      this.context,
-    );
+    this.templates.forEach((path) => {
+      this.fs.copyTpl(
+        this.templatePath(path),
+        this.destinationPath(path),
+        this.context,
+      );
+    });
   }
 
 }

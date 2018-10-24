@@ -6,6 +6,9 @@ import prompting from './prompting';
 
 export class RepoReadmeGenerator extends RepoBaseGenerator {
 
+  templates = [
+    'README.md',
+  ];
 
   constructor(args, opts) {
     super(args, opts);
@@ -25,11 +28,13 @@ export class RepoReadmeGenerator extends RepoBaseGenerator {
   }
 
   async writing() {
-    this.fs.copyTpl(
-      this.templatePath('README.md'),
-      this.destinationPath('README.md'),
-      this.context,
-    );
+    this.templates.forEach((path) => {
+      this.fs.copyTpl(
+        this.templatePath(path),
+        this.destinationPath(path),
+        this.context,
+      );
+    });
   }
 
 }

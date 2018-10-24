@@ -6,6 +6,11 @@ import prompting from './prompting';
 
 export class RepoContributingGenerator extends RepoBaseGenerator {
 
+  templates = [
+    'CODE_OF_CONDUCT.md',
+    'CONTRIBUTING.md',
+    'STYLE_GUIDES.md',
+  ];
 
   constructor(args, opts) {
     super(args, opts);
@@ -25,21 +30,14 @@ export class RepoContributingGenerator extends RepoBaseGenerator {
   }
 
   async writing() {
-    this.fs.copyTpl(
-      this.templatePath('CODE_OF_CONDUCT.md'),
-      this.destinationPath('CODE_OF_CONDUCT.md'),
-      this.context,
-    );
-    this.fs.copy(
-      this.templatePath('CONTRIBUTING.md'),
-      this.destinationPath('CONTRIBUTING.md'),
-    );
-    this.fs.copyTpl(
-      this.templatePath('STYLE_GUIDES.md'),
-      this.destinationPath('STYLE_GUIDES.md'),
-      this.context,
-    );
-    }
+    this.templates.forEach((path) => {
+      this.fs.copyTpl(
+        this.templatePath(path),
+        this.destinationPath(path),
+        this.context,
+      );
+    });
+  }
 
 }
 

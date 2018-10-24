@@ -6,6 +6,10 @@ import prompting from './prompting';
 
 export class RepoIgnoreGenerator extends RepoBaseGenerator {
 
+  templates = [
+    '.gitignore',
+    '.npmignore',
+  ];
 
   constructor(args, opts) {
     super(args, opts);
@@ -25,8 +29,13 @@ export class RepoIgnoreGenerator extends RepoBaseGenerator {
   }
 
   async writing() {
-    this.fs.copyTpl(this.templatePath('.gitignore'), this.destinationPath('.gitignore'), this.context);
-    this.fs.copyTpl(this.templatePath('.npmignore'), this.destinationPath('.npmignore'), this.context);
+    this.templates.forEach((path) => {
+      this.fs.copyTpl(
+        this.templatePath(path),
+        this.destinationPath(path),
+        this.context,
+      );
+    });
   }
 
 }
