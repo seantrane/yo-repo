@@ -55,8 +55,10 @@ git clone https://github.com/seantrane/yo-repo.git yo-repo && cd yo-repo
 ## Install Dependencies <a id="install-dependencies"></a>
 
 ```bash
-# Using NPM:
+# Install dependecies:
 npm install
+# Link npm package to your global namespace:
+npm link
 ```
 
 ---
