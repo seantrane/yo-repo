@@ -31,18 +31,6 @@ export async function prompting(yo) {
     homepageUrl: true,
     demoUrl: true,
   });
-  const features = [];
-  while (true) {
-    const { feature } = await yo.prompt([
-      {
-        type: 'input',
-        name: 'feature',
-        message: 'Feature:',
-      },
-    ]);
-    if (feature === '') break;
-    features.push(feature);
-  }
   const { installation } = await yo.prompt([
     {
       type: 'input',
@@ -81,7 +69,6 @@ export async function prompting(yo) {
     dependencies,
     description,
     destination,
-    features,
     homepageUrl,
     installation,
     license,
@@ -91,6 +78,11 @@ export async function prompting(yo) {
     repositoryUrl,
     username,
   };
+  if (yo.options['features'] === undefined) {
+    yo.answers.features = await YoRepoPrompts.featuresPrompt(yo);
+  } else {
+    yo.answers.features = yo.options['features'];
+  }
   yo.context = { ...yo.context, ...yo.answers };
 }
 

@@ -9,23 +9,15 @@ export async function prompting(yo) {
     destination: true,
     repositoryUrl: true,
   });
-  const features = [];
-  while (true) {
-    const { feature } = await yo.prompt([
-      {
-        type: 'input',
-        name: 'feature',
-        message: 'Feature:',
-      },
-    ]);
-    if (feature === '') break;
-    features.push(feature);
-  }
   yo.answers = {
     destination,
-    features,
     repositoryUrl,
   };
+  if (yo.options['features'] === undefined) {
+    yo.answers.features = await YoRepoPrompts.featuresPrompt(yo);
+  } else {
+    yo.answers.features = yo.options['features'];
+  }
   yo.context = { ...yo.context, ...yo.answers };
 }
 

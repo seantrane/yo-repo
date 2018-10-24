@@ -1,4 +1,5 @@
 import chalk from 'chalk';
+import { Answers } from 'inquirer';
 import { resolve as pathResolve } from 'path';
 import * as Generator from 'yeoman-generator';
 
@@ -76,6 +77,29 @@ export class YoRepoPrompts implements YoRepoPromptsInterface {
   _prompt = promptMessage;
 
   constructor(public yo: YoRepoInterface) {}
+
+  /**
+   * Features Option/Prompt
+   *
+   * @returns {Promise<any>}
+   * @memberof YoRepoPrompts
+   */
+  static async featuresPrompt(yo: YoRepoInterface): Promise<Array<Promise<Answers>>> {
+    const features = [];
+    yo.log(promptMessage('What features are available with this repo/package?'));
+    while (true) {
+      const { feature } = await yo.prompt([
+        {
+          type: 'input',
+          name: 'feature',
+          message: 'Feature:',
+        },
+      ]);
+      if (feature === '') break;
+      features.push(feature);
+    }
+    return features;
+  }
 
   async prompt(prompts): Promise<YoRepoPromptsInterface> {
     const result: YoRepoPromptsInterface = {};

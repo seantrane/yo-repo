@@ -43,18 +43,7 @@ export async function prompting(yo) {
     if (keyword === '') break;
     keywords.push(keyword);
   }
-  const features = [];
-  while (true) {
-    const { feature } = await yo.prompt([
-      {
-        type: 'input',
-        name: 'feature',
-        message: 'Feature:',
-      },
-    ]);
-    if (feature === '') break;
-    features.push(feature);
-  }
+  const features = await YoRepoPrompts.featuresPrompt(yo);
   const { installation } = await yo.prompt([
     {
       type: 'input',
