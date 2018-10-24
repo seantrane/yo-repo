@@ -174,9 +174,6 @@ export class YoRepoPrompts implements YoRepoPromptsInterface {
     if (!prompts || prompts.packageName) {
       this.packageName = result.packageName = await this.packageNamePrompt();
     }
-    if (!prompts || prompts.demoUrl) {
-      this.demoUrl = result.demoUrl = await this.demoUrlPrompt();
-    }
     if (!prompts || prompts.destination) {
       this.destination = result.destination = await this.destinationPrompt();
     }
@@ -203,6 +200,9 @@ export class YoRepoPrompts implements YoRepoPromptsInterface {
     }
     if (!prompts || prompts.homepageUrl) {
       this.homepageUrl = result.homepageUrl = await this.homepageUrlPrompt();
+    }
+    if (!prompts || prompts.demoUrl) {
+      this.demoUrl = result.demoUrl = await this.demoUrlPrompt();
     }
     if (!prompts || prompts.installation) {
       this.installation = result.installation = await this.installationPrompt();
