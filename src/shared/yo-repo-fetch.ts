@@ -185,7 +185,7 @@ export class Fetch {
    */
   packageLicense(defaultValue = 'MIT'): string {
     let license = this._getFromPackage('license', defaultValue);
-    license = get(spdxCorrect(license), '0', '');
+    license = (!get(license, 'length')) ? defaultValue : get(spdxCorrect(license), '0', '');
     if (!get(license, 'length')) license = defaultValue;
     return license;
   }
