@@ -1,10 +1,11 @@
 import chalk from 'chalk';
 import * as figlet from 'figlet';
 import yoOptionOrPrompt from '../shared/yo-option-or-prompt';
+import YoRepoInterface from '../shared/yo-repo.interface';
 
 const yosay = require('yosay');
 
-export async function initializing(yo) {
+export async function initializing(yo: YoRepoInterface) {
   yo.log('\n\n\n' + chalk.bold.magentaBright(
     figlet.textSync('Yo Repo!', { font: 'Roman' }),
   ));

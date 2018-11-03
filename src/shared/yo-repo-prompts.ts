@@ -4,10 +4,7 @@ import { resolve as pathResolve } from 'path';
 import * as Generator from 'yeoman-generator';
 
 import fetch from './yo-repo-fetch';
-
-export interface YoRepoInterface extends Generator {
-  optionOrPrompt: ((prompts: any) => Promise<any>);
-}
+import YoRepoInterface from './yo-repo.interface';
 
 export interface YoRepoPromptsInterface {
   authorEmail?: string;
