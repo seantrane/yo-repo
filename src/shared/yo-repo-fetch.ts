@@ -3,7 +3,7 @@ import { existsSync } from 'fs-extra';
 // import githubUsername = require('github-username');
 import { get, isString, startCase, trimEnd } from 'lodash';
 import { hostname, userInfo } from 'os';
-import { sync as gitConfigSync } from 'parse-git-config';
+// import { sync as gitConfigSync } from 'parse-git-config';
 import { resolve as pathResolve } from 'path';
 import { exec as shExec, which as shWhich } from 'shelljs';
 import spdxCorrect = require('spdx-correct');
@@ -40,9 +40,10 @@ export class Fetch {
     let name = this._getFromPackage('author.name', this._getFromPackage('author', defaultValue));
     if (isString(name)) name = trimEnd((name.match(/^[^\<\(]+/g) || []).join(''));
     if (!get(name, 'length')) {
-      let config = gitConfigSync();
-      if (typeof config === 'undefined') config = gitConfigSync({ path: '~/.gitconfig' });
-      name = (typeof config.user !== 'undefined') ? config.user.name : null;
+      // let config = gitConfigSync();
+      // if (typeof config === 'undefined') config = gitConfigSync({ path: '~/.gitconfig' });
+      // name = (typeof config.user !== 'undefined') ? config.user.name : null;
+      name = this.gitName();
     }
     if (!get(name, 'length')) name = startCase(this.username());
     return name;
@@ -65,9 +66,10 @@ export class Fetch {
       email = (author.match(/<[^@]+.+(?=>)/g) || []).join('').substr(1);
     }
     if (!get(email, 'length')) {
-      let config = gitConfigSync();
-      if (typeof config === 'undefined') config = gitConfigSync({ path: '~/.gitconfig' });
-      email = (typeof config.user !== 'undefined') ? config.user.email : null;
+      // let config = gitConfigSync();
+      // if (typeof config === 'undefined') config = gitConfigSync({ path: '~/.gitconfig' });
+      // email = (typeof config.user !== 'undefined') ? config.user.email : null;
+      email = this.gitEmail();
     }
     if (!get(email, 'length')) {
       email = defaultEmail || `${userInfo().username}@${hostname()}`;
