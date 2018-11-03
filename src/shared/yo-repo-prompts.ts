@@ -35,7 +35,7 @@ export interface YoRepoPromptsInterface {
  * @memberof YoRepoPrompts
  */
 export function promptMessage(question: string, key?: string, hint?: string): string {
-  let msg = chalk.reset.magentaBright('\n\n> ' + question) + '\n\n  ';
+  let msg = '\n\n' + chalk.reset.magentaBright('> ' + question) + '\n\n  ';
   if (typeof hint !== 'undefined') {
     msg += chalk.reset.gray.italic(hint) + '\n\n  ';
   }
