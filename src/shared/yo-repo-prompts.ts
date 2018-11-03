@@ -1,7 +1,5 @@
 import chalk from 'chalk';
-import { Answers } from 'inquirer';
 import { resolve as pathResolve } from 'path';
-import * as Generator from 'yeoman-generator';
 
 import fetch from './yo-repo-fetch';
 import YoRepoInterface from './yo-repo.interface';
@@ -24,6 +22,8 @@ export interface YoRepoPromptsInterface {
   username?: string;
   version?: string;
 }
+
+export type arrayOfObjectsWithNameAndUrl = Array<{name: string, url: string}>;
 
 /**
  * Output a prompt message using Yo Repo! style
@@ -80,11 +80,11 @@ export class YoRepoPrompts implements YoRepoPromptsInterface {
   /**
    * Dependencies Option/Prompt
    *
-   * @returns {Promise<any>}
+   * @returns {Promise<arrayOfObjectsWithNameAndUrl>}
    * @memberof YoRepoPrompts
    */
-  static async dependenciesPrompt(yo: YoRepoInterface): Promise<Array<Promise<Answers>>> {
-    const dependencies = [];
+  static async dependenciesPrompt(yo: YoRepoInterface): Promise<arrayOfObjectsWithNameAndUrl> {
+    const dependencies: arrayOfObjectsWithNameAndUrl = [];
     yo.log(promptMessage('What dependencies are required by this repo/package?'));
     while (true) {
       const { dependencyName } = await yo.prompt([
@@ -114,11 +114,11 @@ export class YoRepoPrompts implements YoRepoPromptsInterface {
   /**
    * Features Option/Prompt
    *
-   * @returns {Promise<any>}
+   * @returns {Promise<string[]>}
    * @memberof YoRepoPrompts
    */
-  static async featuresPrompt(yo: YoRepoInterface): Promise<Array<Promise<Answers>>> {
-    const features = [];
+  static async featuresPrompt(yo: YoRepoInterface): Promise<string[]> {
+    const features: string[] = [];
     yo.log(promptMessage('What features are available with this repo/package?'));
     while (true) {
       const { feature } = await yo.prompt([
@@ -137,11 +137,11 @@ export class YoRepoPrompts implements YoRepoPromptsInterface {
   /**
    * Keywords Option/Prompt
    *
-   * @returns {Promise<any>}
+   * @returns {Promise<string[]>}
    * @memberof YoRepoPrompts
    */
-  static async keywordsPrompt(yo: YoRepoInterface): Promise<Array<Promise<Answers>>> {
-    const keywords = [];
+  static async keywordsPrompt(yo: YoRepoInterface): Promise<string[]> {
+    const keywords: string[] = [];
     yo.log(promptMessage('Are there keywords associated with this repo/package?'));
     while (true) {
       const { keyword } = await yo.prompt([
@@ -213,10 +213,10 @@ export class YoRepoPrompts implements YoRepoPromptsInterface {
   /**
    * Author Email Option/Prompt
    *
-   * @returns {Promise<any>}
+   * @returns {Promise<string>}
    * @memberof YoRepoPrompts
    */
-  async authorEmailPrompt(): Promise<any> {
+  async authorEmailPrompt(): Promise<string> {
     return this.yo.optionOrPrompt({
       type: 'input',
       name: 'authorEmail',
@@ -232,10 +232,10 @@ export class YoRepoPrompts implements YoRepoPromptsInterface {
   /**
    * Author Name Option/Prompt
    *
-   * @returns {Promise<any>}
+   * @returns {Promise<string>}
    * @memberof YoRepoPrompts
    */
-  async authorNamePrompt(): Promise<any> {
+  async authorNamePrompt(): Promise<string> {
     return this.yo.optionOrPrompt({
       type: 'input',
       name: 'authorName',
@@ -252,10 +252,10 @@ export class YoRepoPrompts implements YoRepoPromptsInterface {
   /**
    * Author URL Option/Prompt
    *
-   * @returns {Promise<any>}
+   * @returns {Promise<string>}
    * @memberof YoRepoPrompts
    */
-  async authorUrlPrompt(): Promise<any> {
+  async authorUrlPrompt(): Promise<string> {
     if (!this.username) this.username = await this.usernamePrompt();
     return this.yo.optionOrPrompt({
       type: 'input',
@@ -272,10 +272,10 @@ export class YoRepoPrompts implements YoRepoPromptsInterface {
   /**
    * CI/CD Option/Prompt
    *
-   * @returns {Promise<any>}
+   * @returns {Promise<string>}
    * @memberof YoRepoPrompts
    */
-  async cicdPrompt(): Promise<any> {
+  async cicdPrompt(): Promise<string> {
     return this.yo.optionOrPrompt({
       type: 'list',
       name: 'cicd',
@@ -296,10 +296,10 @@ export class YoRepoPrompts implements YoRepoPromptsInterface {
   /**
    * Demo URL Option/Prompt
    *
-   * @returns {Promise<any>}
+   * @returns {Promise<string>}
    * @memberof YoRepoPrompts
    */
-  async demoUrlPrompt(): Promise<any> {
+  async demoUrlPrompt(): Promise<string> {
     return this.yo.optionOrPrompt({
       type: 'input',
       name: 'demoUrl',
@@ -313,10 +313,10 @@ export class YoRepoPrompts implements YoRepoPromptsInterface {
   /**
    * Repo/Package Description Option/Prompt
    *
-   * @returns {Promise<any>}
+   * @returns {Promise<string>}
    * @memberof YoRepoPrompts
    */
-  async descriptionPrompt(): Promise<any> {
+  async descriptionPrompt(): Promise<string> {
     return this.yo.optionOrPrompt({
       type: 'input',
       name: 'description',
@@ -331,10 +331,10 @@ export class YoRepoPrompts implements YoRepoPromptsInterface {
   /**
    * Destination directory Option/Prompt
    *
-   * @returns {Promise<any>}
+   * @returns {Promise<string>}
    * @memberof YoRepoPrompts
    */
-  async destinationPrompt(): Promise<any> {
+  async destinationPrompt(): Promise<string> {
     if (!this.packageName) this.packageName = await this.packageNamePrompt();
     const destination = await this.yo.optionOrPrompt({
       type: 'input',
@@ -352,10 +352,10 @@ export class YoRepoPrompts implements YoRepoPromptsInterface {
   /**
    * Homepage URL Option/Prompt
    *
-   * @returns {Promise<any>}
+   * @returns {Promise<string>}
    * @memberof YoRepoPrompts
    */
-  async homepageUrlPrompt(): Promise<any> {
+  async homepageUrlPrompt(): Promise<string> {
     if (!this.repositoryUrl) this.repositoryUrl = await this.repositoryUrlPrompt();
     return this.yo.optionOrPrompt({
       type: 'input',
@@ -373,10 +373,10 @@ export class YoRepoPrompts implements YoRepoPromptsInterface {
   /**
    * Installation command Option/Prompt
    *
-   * @returns {Promise<any>}
+   * @returns {Promise<string>}
    * @memberof YoRepoPrompts
    */
-  async installationPrompt(): Promise<any> {
+  async installationPrompt(): Promise<string> {
     return this.yo.optionOrPrompt({
       type: 'input',
       name: 'installation',
@@ -391,10 +391,10 @@ export class YoRepoPrompts implements YoRepoPromptsInterface {
   /**
    * License Option/Prompt
    *
-   * @returns {Promise<any>}
+   * @returns {Promise<string>}
    * @memberof YoRepoPrompts
    */
-  async licensePrompt(): Promise<any> {
+  async licensePrompt(): Promise<string> {
     return this.yo.optionOrPrompt({
       type: 'list',
       name: 'license',
@@ -428,10 +428,10 @@ export class YoRepoPrompts implements YoRepoPromptsInterface {
   /**
    * Package Name Option/Prompt
    *
-   * @returns {Promise<any>}
+   * @returns {Promise<string>}
    * @memberof YoRepoPrompts
    */
-  async packageNamePrompt(): Promise<any> {
+  async packageNamePrompt(): Promise<string> {
     return this.yo.optionOrPrompt({
       type: 'input',
       name: 'packageName',
@@ -450,10 +450,10 @@ export class YoRepoPrompts implements YoRepoPromptsInterface {
   /**
    * Profile Name Option/Prompt
    *
-   * @returns {Promise<any>}
+   * @returns {Promise<string>}
    * @memberof YoRepoPrompts
    */
-  async profileNamePrompt(): Promise<any> {
+  async profileNamePrompt(): Promise<string> {
     return this.yo.optionOrPrompt({
       type: 'input',
       name: 'profileName',
@@ -466,7 +466,13 @@ export class YoRepoPrompts implements YoRepoPromptsInterface {
     });
   }
 
-  async repositoryNamePrompt(): Promise<any> {
+  /**
+   * Repository Name Option/Prompt
+   *
+   * @returns {Promise<string>}
+   * @memberof YoRepoPrompts
+   */
+  async repositoryNamePrompt(): Promise<string> {
     return this.yo.optionOrPrompt({
       type: 'input',
       name: 'repositoryName',
@@ -482,10 +488,10 @@ export class YoRepoPrompts implements YoRepoPromptsInterface {
   /**
    * Repository URL Option/Prompt
    *
-   * @returns {Promise<any>}
+   * @returns {Promise<string>}
    * @memberof YoRepoPrompts
    */
-  async repositoryUrlPrompt(): Promise<any> {
+  async repositoryUrlPrompt(): Promise<string> {
     if (!this.username) this.username = await this.usernamePrompt();
     if (!this.packageName) this.packageName = await this.packageNamePrompt();
     return this.yo.optionOrPrompt({
@@ -504,10 +510,10 @@ export class YoRepoPrompts implements YoRepoPromptsInterface {
   /**
    * Username Option/Prompt
    *
-   * @returns {Promise<any>}
+   * @returns {Promise<string>}
    * @memberof YoRepoPrompts
    */
-  async usernamePrompt(): Promise<any> {
+  async usernamePrompt(): Promise<string> {
     let githubUsername: string;
     await this.yo.user.github.username().then((res) => {
       githubUsername = res;
@@ -529,10 +535,10 @@ export class YoRepoPrompts implements YoRepoPromptsInterface {
   /**
    * Repo/Package Version Option/Prompt
    *
-   * @returns {Promise<any>}
+   * @returns {Promise<string>}
    * @memberof YoRepoPrompts
    */
-  async versionPrompt(): Promise<any> {
+  async versionPrompt(): Promise<string> {
     return this.yo.optionOrPrompt({
       type: 'input',
       name: 'version',
