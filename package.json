@@ -84,7 +84,7 @@
     "@types/yeoman-test": "^1.7.4",
     "@types/yosay": "0.0.29",
     "chai": "^4.1.2",
-    "commitizen": "^3.0.0",
+    "commitizen": "^3.0.4",
     "cz-conventional-changelog": "^2.1.0",
     "husky": "^1.0.0",
     "istanbul": "^0.4.5",
