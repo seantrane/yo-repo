@@ -1,6 +1,7 @@
 import chalk from 'chalk';
 import { resolve as pathResolve } from 'path';
 
+import handleError from './handle-error';
 import fetch from './yo-repo-fetch';
 import YoRepoInterface from './yo-repo.interface';
 
@@ -519,7 +520,7 @@ export class YoRepoPrompts implements YoRepoPromptsInterface {
       githubUsername = res;
     }).then(() => {
       if (typeof githubUsername === 'undefined') githubUsername = fetch.username();
-    });
+    }).catch(handleError);
     return this.yo.optionOrPrompt({
       type: 'input',
       name: 'username',
