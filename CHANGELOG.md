@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## [1.0.8](https://github.com/seantrane/yo-repo/compare/v1.0.7...v1.0.8) (2018-11-03)
+
+
+### Bug Fixes
+
+* add handleError function ([c04ffcb](https://github.com/seantrane/yo-repo/commit/c04ffcb))
+* change default author.url to github profile url ([345a9e3](https://github.com/seantrane/yo-repo/commit/345a9e3))
+* disable parse-git-config.sync to limit repeated github api calls ([bccdb07](https://github.com/seantrane/yo-repo/commit/bccdb07))
+* prevent bad input to spdx.correct ([6877020](https://github.com/seantrane/yo-repo/commit/6877020))
+* refactor yo.user.github.username to limit repeated github api calls ([cfa881d](https://github.com/seantrane/yo-repo/commit/cfa881d))
+
 ## [1.0.7](https://github.com/seantrane/yo-repo/compare/v1.0.6...v1.0.7) (2018-10-24)
 
 
