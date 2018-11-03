@@ -16,6 +16,16 @@ import spdxCorrect = require('spdx-correct');
  */
 export class Fetch {
 
+  packageJsonPath: string;
+
+  constructor() {
+    this.resetPackageJsonPath();
+  }
+
+  resetPackageJsonPath(value = 'package.json') {
+    this.packageJsonPath = value;
+  }
+
   /**
    * Fetch author name
    *
@@ -302,7 +312,7 @@ export class Fetch {
    * @memberof Fetch
    */
   _getFromPackage(path: string, defaultValue?: any): any {
-    const packagePath = pathResolve('package.json');
+    const packagePath = pathResolve(this.packageJsonPath);
     if (existsSync(packagePath)) {
       return get(require(packagePath), path, defaultValue);
     }
