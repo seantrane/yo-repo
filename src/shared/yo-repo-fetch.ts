@@ -243,7 +243,7 @@ export class Fetch {
    * @returns {string}
    * @memberof Fetch
    */
-  packageRepository(username = this.username(), packageName: string): string {
+  packageRepository(username = this.username(), packageName?: string): string {
     if (!packageName) packageName = this.packageName(`${username}s-package`);
     const defaultValue = `https://github.com/${username}/${packageName}`;
     let repository = this._getFromPackage('repository', defaultValue);
