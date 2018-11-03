@@ -1,0 +1,34 @@
+{
+  "answers": {
+    "default": {
+      "authorEmail": "test_authorEmail@test.local",
+      "authorName": "test_authorName",
+      "authorUrl": "https://github.com/test_username",
+      "cicd": "travis",
+      "dependencies": [
+        "test_dependency_1_name",
+        "test_dependency_1_url",
+        "test_dependency_2_name",
+        "test_dependency_2_url"
+      ],
+      "description": "test_description",
+      "destination": "./temp",
+      "features": [
+        "test_features_1",
+        "test_features_2"
+      ],
+      "homepageUrl": "https://github.com/test_profileName/test_repositoryName#readme",
+      "keywords": [
+        "test_keyword_1",
+        "test_keyword_2"
+      ],
+      "license": "MIT",
+      "packageName": "test_packageName",
+      "profileName": "test_profileName",
+      "repositoryName": "test_repositoryName",
+      "repositoryUrl": "https://github.com/test_profileName/test_repositoryName",
+      "username": "test_username",
+      "version": "test_version"
+    }
+  }
+}
