@@ -21,9 +21,22 @@ export async function initializing(yo: YoRepoInterface) {
       email: yo.user.git.email(),
     },
   };
-  yo.user.github.username().then((res) => {
-    yo.context.user.githubUsername = res;
-  });
+  try {
+    if (yo.context.user.email.indexOf('@') !== -1 && yo.context.user.email.indexOf('github') !== -1) {
+      yo.context.user.githubUsername = yo.context.user.email.substr(0, yo.context.user.email.indexOf('@'));
+    } else {
+      await yo.user.github.username()
+        .then((res) => {
+          yo.context.user.githubUsername = res;
+        })
+        .catch((err) => {
+          // yo.log('\n\n' + chalk.bold.redBright('There was an error fetching GitHub username...') + '\n\n');
+          // console.dir(err);
+        });
+    }
+  } catch (error) {
+    // do nothing
+  }
   yo.optionOrPrompt = yoOptionOrPrompt;
 }
 
