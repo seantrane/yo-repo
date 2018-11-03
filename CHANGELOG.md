@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## [1.0.9](https://github.com/seantrane/yo-repo/compare/v1.0.8...v1.0.9) (2018-11-03)
+
+
+### Bug Fixes
+
+* update 'commitizen' to resolve vulnerability in 'merge' ([b8adcb7](https://github.com/seantrane/yo-repo/commit/b8adcb7))
+
 ## [1.0.8](https://github.com/seantrane/yo-repo/compare/v1.0.7...v1.0.8) (2018-11-03)
 
 
