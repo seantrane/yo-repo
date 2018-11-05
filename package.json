@@ -44,7 +44,7 @@
     "lint": "npm run lint:md && npm run lint:ts",
     "markdownlint": "markdownlint",
     "semantic-release": "semantic-release",
-    "test": "nyc mocha --opts mocha.opts --timeout=10000 --exit"
+    "test": "nyc mocha --opts mocha.opts --timeout=30000 --exit"
   },
   "dependencies": {
     "@octokit/rest": "^15.10.0",
