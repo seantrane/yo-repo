@@ -22,9 +22,22 @@ describe('Yo Repo Fetch', function() {
 
   describe('Fetch class', function() {
 
-    it('should have expected methods', function() {
-      expect(fetch).to.respondTo('authorName');
-      expect(fetch).to.respondTo('authorEmail');
+    it('should have expected methods and properties', function() {
+      expect(fetch).to.have.property('packageJsonPath');
+      expect(fetch).to.respondTo('resetPackageJsonPath');
+    });
+
+    it('should have default value for packageJsonPath property', function() {
+      expect(fetch.packageJsonPath).to.include('package.json');
+    });
+
+    it('should reset packageJsonPath property', function() {
+      fetch.resetPackageJsonPath('missing.json');
+      expect(fetch.packageJsonPath).to.include('missing.json');
+    });
+
+    it('should reset packageJsonPath property to default', function() {
+      expect(fetch.packageJsonPath).to.include('package.json');
     });
 
   });
