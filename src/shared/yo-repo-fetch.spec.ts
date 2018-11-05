@@ -1,15 +1,8 @@
 import { assert, expect, should } from 'chai';
-// import * as fs from 'fs';
 import * as mocha from 'mocha';
 import * as path from 'path';
-import * as sinon from 'sinon';
 
 import { Fetch } from './yo-repo-fetch';
-
-// afterEach(() => {
-//   // Restore the default sandbox here
-//   sinon.restore();
-// });
 
 describe('Yo Repo Fetch', function() {
 
@@ -122,15 +115,6 @@ describe('Yo Repo Fetch', function() {
       // expect(fetch.gitEmail()).to.include('seantrane');
       expect(fetch.gitEmail()).to.be.a('string');
     });
-
-    // it('should fetch the git user email address from cache', function() {
-    //   // const spy = sinon.spy(process, 'cwd');
-    //   let email = fetch.gitEmail();
-    //   expect(email).to.include('seantrane');
-    //   email = fetch.gitEmail();
-    //   expect(email).to.include('seantrane');
-    //   // assert(spy.calledWith(fetch.gitEmail));
-    // });
 
   });
 
