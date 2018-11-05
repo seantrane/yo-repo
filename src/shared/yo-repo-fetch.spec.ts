@@ -63,13 +63,11 @@ describe('Yo Repo Fetch', function() {
     });
 
     it('should fetch author.name property from package.json', function() {
-      // expect(fetch.authorName()).to.include('seantrane');
       expect(fetch.authorName()).to.be.a('string');
     });
 
     it('should fetch author name property from ~/.gitconfig', function() {
       fetch.resetPackageJsonPath('missing.json');
-      // expect(fetch.authorName()).to.include('Sean');
       expect(fetch.authorName()).to.be.a('string');
     });
 
@@ -99,7 +97,6 @@ describe('Yo Repo Fetch', function() {
     });
 
     it('should fetch author.url property from package.json', function() {
-      // expect(fetch.authorUrl()).to.include('seantrane');
       expect(fetch.authorUrl()).to.be.a('string');
     });
 
@@ -112,7 +109,6 @@ describe('Yo Repo Fetch', function() {
     });
 
     it('should fetch the git user email address', function() {
-      // expect(fetch.gitEmail()).to.include('seantrane');
       expect(fetch.gitEmail()).to.be.a('string');
     });
 
@@ -125,7 +121,6 @@ describe('Yo Repo Fetch', function() {
     });
 
     it('should fetch the GitHub username', function() {
-      // expect(fetch.githubUsername()).to.include('seantrane');
       expect(fetch.githubUsername()).to.be.a('string');
     });
 
@@ -138,7 +133,6 @@ describe('Yo Repo Fetch', function() {
     });
 
     it('should fetch the git user name', function() {
-      // expect(fetch.gitName()).to.include('Sean Trane');
       expect(fetch.gitName()).to.be.a('string');
     });
 
@@ -205,7 +199,6 @@ describe('Yo Repo Fetch', function() {
     it('should return a default value when package.json does not exist', function() {
       fetch.resetPackageJsonPath('missing.json');
       expect(fetch.packageName('default')).to.equal('default');
-      // expect(fetch.packageName('')).to.be.a('string');
     });
 
   });
@@ -235,7 +228,6 @@ describe('Yo Repo Fetch', function() {
     });
 
     it('should fetch version property from package.json', function() {
-      // expect(fetch.packageVersion()).to.equal(fetch._getFromPackage('version'));
       expect(fetch.packageVersion()).to.match(/\d+\.\d+\.\d+\-?[\w\d\_\-\.]*/);
     });
 
