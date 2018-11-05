@@ -11,6 +11,9 @@ const appSpec = require('./app.spec.json');
 
 const tempDirPath = path.join(__dirname, '../../temp');
 
+// Ensure Fetch unit tests are run first:
+require('../shared/yo-repo-fetch.spec');
+
 describe('yo repo:app', function() {
 
   describe('RepoGenerator class', function() {
