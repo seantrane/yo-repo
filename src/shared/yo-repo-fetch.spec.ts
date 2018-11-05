@@ -6,10 +6,10 @@ import * as sinon from 'sinon';
 
 import { Fetch } from './yo-repo-fetch';
 
-afterEach(() => {
-  // Restore the default sandbox here
-  sinon.restore();
-});
+// afterEach(() => {
+//   // Restore the default sandbox here
+//   sinon.restore();
+// });
 
 describe('Yo Repo Fetch', function() {
 
