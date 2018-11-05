@@ -24,7 +24,7 @@ describe.skip('yo repo contributing', function() {
   describe('the generator', function() {
 
     it('should generate contributing-info files with expected contents', function(done) {
-      setTimeout(done, 1000);
+      setTimeout(done, 500);
       helpers.run(RepoContributingGenerator)
         .withPrompts(appSpec.answers.default)
         .then(function(dir) {
@@ -32,19 +32,17 @@ describe.skip('yo repo contributing', function() {
           assert.file('CONTRIBUTING.md');
           assert.file('STYLE\_GUIDES.md');
         })
-        .then(done)
         .catch(done);
     });
 
     it('should generate contributing-info files by default, without prompts', function(done) {
-      setTimeout(done, 1000);
+      setTimeout(done, 500);
       helpers.run(RepoContributingGenerator)
         .then(function(dir) {
           assert.file('CODE\_OF\_CONDUCT.md');
           assert.file('CONTRIBUTING.md');
           assert.file('STYLE\_GUIDES.md');
         })
-        .then(done)
         .catch(done);
     });
 
@@ -55,7 +53,6 @@ describe.skip('yo repo contributing', function() {
     //     .then(function(dir) {
     //       assert.file('CODE\_OF\_CONDUCT.md');
     //     })
-    //     .then(done)
     //     .catch(done);
     // });
 
@@ -66,7 +63,6 @@ describe.skip('yo repo contributing', function() {
     //     .then(function(dir) {
     //       assert.file('CONTRIBUTING.md');
     //     })
-    //     .then(done)
     //     .catch(done);
     // });
 
@@ -77,7 +73,6 @@ describe.skip('yo repo contributing', function() {
     //     .then(function(dir) {
     //       assert.file('STYLE\_GUIDES.md');
     //     })
-    //     .then(done)
     //     .catch(done);
     // });
 

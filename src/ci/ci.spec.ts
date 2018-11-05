@@ -29,7 +29,6 @@ describe.skip('yo repo ci', function() {
           assert.file('.travis.yml');
           // assert.fileContent('.travis.yml', /.*/);
         })
-        .then(done)
         .catch(done);
     });
 
@@ -39,7 +38,6 @@ describe.skip('yo repo ci', function() {
         .then(function(dir) {
           assert.noFile('.travis.yml');
         })
-        .then(done)
         .catch(done);
     });
 
