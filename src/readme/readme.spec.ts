@@ -23,8 +23,8 @@ describe.skip('yo repo readme', function() {
 
   describe('the generator', function() {
 
-      setTimeout(done, 300);
     it('should generate a README.md file with expected contents', function(done) {
+      setTimeout(done, 300);
       helpers.run(RepoReadmeGenerator)
         .withPrompts(appSpec.answers.default)
         .then(function(dir) {
@@ -34,8 +34,8 @@ describe.skip('yo repo readme', function() {
         .catch(done);
     });
 
-      setTimeout(done, 300);
     it('should generate a README.md file by default, without prompts', function(done) {
+      setTimeout(done, 300);
       helpers.run(RepoReadmeGenerator)
         .then(function(dir) {
           assert.file('README.md');

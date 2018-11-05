@@ -23,8 +23,8 @@ describe.skip('yo repo roadmap', function() {
 
   describe('the generator', function() {
 
-      setTimeout(done, 300);
     it('should generate a ROADMAP.md file with expected contents', function(done) {
+      setTimeout(done, 300);
       helpers.run(RepoRoadmapGenerator)
         .withPrompts(appSpec.answers.default)
         .then(function(dir) {
@@ -34,8 +34,8 @@ describe.skip('yo repo roadmap', function() {
         .catch(done);
     });
 
-      setTimeout(done, 300);
     it('should generate a ROADMAP.md file by default, without prompts', function(done) {
+      setTimeout(done, 300);
       helpers.run(RepoRoadmapGenerator)
         .then(function(dir) {
           assert.file('ROADMAP.md');
