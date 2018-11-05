@@ -4,7 +4,6 @@ import * as mocha from 'mocha';
 import * as path from 'path';
 import * as sinon from 'sinon';
 
-import handleError from './handle-error';
 import { Fetch } from './yo-repo-fetch';
 
 afterEach(() => {

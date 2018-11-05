@@ -5,7 +5,6 @@ import * as path from 'path';
 import * as assert from 'yeoman-assert';
 import * as helpers from 'yeoman-test';
 
-import handleError from '../shared/handle-error';
 import { RepoGenerator } from './';
 
 const appSpec = require('./app.spec.json');
@@ -41,8 +40,9 @@ describe('yo repo:app', function() {
         .then(function(dir) {
           assert.file('.editorconfig');
           assert.fileContent('.editorconfig', /indent\_style \= space/);
+          done();
         })
-        .catch(handleError);
+        .catch(done);
     });
 
     it('should generate .gitignore and .npmignore files with expected contents', function(done) {
@@ -52,8 +52,9 @@ describe('yo repo:app', function() {
         .then(function(dir) {
           assert.file('.gitignore');
           assert.file('.npmignore');
+          done();
         })
-        .catch(handleError);
+        .catch(done);
     });
 
     it('should generate LICENSE file with expected contents', function(done) {
@@ -63,8 +64,9 @@ describe('yo repo:app', function() {
         .then(function(dir) {
           assert.file('LICENSE');
           assert.fileContent('LICENSE', /MIT License/);
+          done();
         })
-        .catch(handleError);
+        .catch(done);
     });
 
     it('should generate contributing-info files with expected contents', function(done) {
@@ -75,8 +77,9 @@ describe('yo repo:app', function() {
           assert.file('CODE\_OF\_CONDUCT.md');
           assert.file('CONTRIBUTING.md');
           assert.file('STYLE\_GUIDES.md');
+          done();
         })
-        .catch(handleError);
+        .catch(done);
     });
 
     it('should generate README.md file with expected contents', function(done) {
@@ -85,8 +88,9 @@ describe('yo repo:app', function() {
         .withPrompts(appSpec.answers.default)
         .then(function(dir) {
           assert.file('README.md');
+          done();
         })
-        .catch(handleError);
+        .catch(done);
     });
 
     it('should generate ROADMAP.md file with expected contents', function(done) {
@@ -95,8 +99,9 @@ describe('yo repo:app', function() {
         .withPrompts(appSpec.answers.default)
         .then(function(dir) {
           assert.file('ROADMAP.md');
+          done();
         })
-        .catch(handleError);
+        .catch(done);
     });
 
   });

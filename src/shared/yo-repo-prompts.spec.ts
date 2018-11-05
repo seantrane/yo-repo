@@ -3,7 +3,6 @@ import * as chaiAsPromised from 'chai-as-promised';
 import * as mocha from 'mocha';
 import * as helpers from 'yeoman-test';
 
-import handleError from './handle-error';
 import { promptMessage, YoRepoPrompts } from './yo-repo-prompts';
 
 chai.use(chaiAsPromised);
