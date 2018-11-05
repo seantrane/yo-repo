@@ -32,12 +32,11 @@ describe.skip('yo repo ci', function() {
         .catch(done);
     });
 
-    it('should generate .travis.yml file by default, without prompt', function(done) {
+    it('should generate no files by default, without prompt', function(done) {
       setTimeout(done, 300);
       helpers.run(RepoCiGenerator)
         .then(function(dir) {
-          assert.file('.travis.yml');
-          // assert.fileContent('.travis.yml', /.*/);
+          assert.noFile('.travis.yml');
         })
         .catch(done);
     });
