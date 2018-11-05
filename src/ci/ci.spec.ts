@@ -21,7 +21,7 @@ describe.skip('yo repo ci', function() {
 
   describe('the generator', function() {
 
-    it('should generate .travis.yml file with expected contents', function(done) {
+    it('should generate a .travis.yml file with expected contents', function(done) {
       setTimeout(done, 300);
       helpers.run(RepoCiGenerator)
         .withPrompts({ cicd: 'travis' })
