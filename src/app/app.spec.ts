@@ -52,12 +52,21 @@ describe('yo repo:app', function() {
         .catch(done);
     });
 
-    it('should generate .gitignore and .npmignore files with expected contents', function(done) {
+    it('should generate .gitignore file with expected contents', function(done) {
       setTimeout(done, 300);
       helpers.run(RepoGenerator)
         .withPrompts(appSpec.answers.default)
         .then(function(dir) {
           assert.file('.gitignore');
+        })
+        .catch(done);
+    });
+
+    it('should generate .npmignore file with expected contents', function(done) {
+      setTimeout(done, 300);
+      helpers.run(RepoGenerator)
+        .withPrompts(appSpec.answers.default)
+        .then(function(dir) {
           assert.file('.npmignore');
         })
         .catch(done);
@@ -74,13 +83,31 @@ describe('yo repo:app', function() {
         .catch(done);
     });
 
-    it('should generate contributing-info files with expected contents', function(done) {
-      setTimeout(done, 300);
+    it('should generate CODE_OF_CONDUCT.md file with expected contents', function(done) {
+      setTimeout(done, 400);
       helpers.run(RepoGenerator)
         .withPrompts(appSpec.answers.default)
         .then(function(dir) {
           assert.file('CODE\_OF\_CONDUCT.md');
+        })
+        .catch(done);
+    });
+
+    it('should generate CONTRIBUTING.md file with expected contents', function(done) {
+      setTimeout(done, 400);
+      helpers.run(RepoGenerator)
+        .withPrompts(appSpec.answers.default)
+        .then(function(dir) {
           assert.file('CONTRIBUTING.md');
+        })
+        .catch(done);
+    });
+
+    it('should generate STYLE_GUIDES.md file with expected contents', function(done) {
+      setTimeout(done, 400);
+      helpers.run(RepoGenerator)
+        .withPrompts(appSpec.answers.default)
+        .then(function(dir) {
           assert.file('STYLE\_GUIDES.md');
         })
         .catch(done);
