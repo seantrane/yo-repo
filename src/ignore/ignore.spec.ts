@@ -6,7 +6,7 @@ import * as helpers from 'yeoman-test';
 
 import { RepoIgnoreGenerator } from './';
 
-describe.skip('yo repo ignore', function() {
+describe('yo repo ignore', function() {
 
   describe('RepoIgnoreGenerator class', function() {
 

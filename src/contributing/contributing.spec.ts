@@ -8,7 +8,7 @@ import { RepoContributingGenerator } from './';
 
 const appSpec = require('../app/app.spec.json');
 
-describe.skip('yo repo contributing', function() {
+describe('yo repo contributing', function() {
 
   describe('RepoContributingGenerator class', function() {
 

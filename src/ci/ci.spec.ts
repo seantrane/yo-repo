@@ -6,7 +6,7 @@ import * as helpers from 'yeoman-test';
 
 import { RepoCiGenerator } from './';
 
-describe.skip('yo repo ci', function() {
+describe('yo repo ci', function() {
 
   describe('RepoCiGenerator class', function() {
 

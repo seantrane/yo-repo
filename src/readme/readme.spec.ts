@@ -8,7 +8,7 @@ import { RepoReadmeGenerator } from './';
 
 const appSpec = require('../app/app.spec.json');
 
-describe.skip('yo repo readme', function() {
+describe('yo repo readme', function() {
 
   describe('RepoReadmeGenerator class', function() {
 
