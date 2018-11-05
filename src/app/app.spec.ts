@@ -18,6 +18,14 @@ require('../roadmap/roadmap.spec');
 
 const appSpec = require('./app.spec.json');
 const tempDirPath = path.join(__dirname, '../../temp');
+const deps = [
+  [helpers.createDummyGenerator(), 'license'],
+  [helpers.createDummyGenerator(), 'repo:ci'],
+  [helpers.createDummyGenerator(), 'repo:contributing'],
+  [helpers.createDummyGenerator(), 'repo:ignore'],
+  [helpers.createDummyGenerator(), 'repo:readme'],
+  [helpers.createDummyGenerator(), 'repo:roadmap'],
+];
 
 describe('yo repo:app', function() {
 
@@ -45,6 +53,7 @@ describe('yo repo:app', function() {
         // .withArguments(['name', ''])          // Mock the arguments
         .withPrompts(appSpec.answers.default) // Mock the prompt answers
         // .withLocalConfig({ lang: 'en' })      // Mock the local config
+        // .withGenerators(deps as any)
         .then(function(dir) {
           assert.file('.editorconfig');
           assert.fileContent('.editorconfig', /indent\_style \= space/);
