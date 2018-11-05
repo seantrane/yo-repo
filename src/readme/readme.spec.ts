@@ -29,7 +29,6 @@ describe.skip('yo repo readme', function() {
         .withPrompts(appSpec.answers.default)
         .then(function(dir) {
           assert.file('README.md');
-          done();
         })
         .catch(done);
     });
@@ -39,7 +38,6 @@ describe.skip('yo repo readme', function() {
       helpers.run(RepoReadmeGenerator)
         .then(function(dir) {
           assert.file('README.md');
-          done();
         })
         .catch(done);
     });

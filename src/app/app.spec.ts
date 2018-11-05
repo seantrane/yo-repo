@@ -43,7 +43,6 @@ describe('yo repo:app', function() {
         .then(function(dir) {
           assert.file('.editorconfig');
           assert.fileContent('.editorconfig', /indent\_style \= space/);
-          done();
         })
         .catch(done);
     });
@@ -55,7 +54,6 @@ describe('yo repo:app', function() {
         .then(function(dir) {
           assert.file('.gitignore');
           assert.file('.npmignore');
-          done();
         })
         .catch(done);
     });
@@ -67,7 +65,6 @@ describe('yo repo:app', function() {
         .then(function(dir) {
           assert.file('LICENSE');
           assert.fileContent('LICENSE', /MIT License/);
-          done();
         })
         .catch(done);
     });
@@ -80,7 +77,6 @@ describe('yo repo:app', function() {
           assert.file('CODE\_OF\_CONDUCT.md');
           assert.file('CONTRIBUTING.md');
           assert.file('STYLE\_GUIDES.md');
-          done();
         })
         .catch(done);
     });
@@ -91,7 +87,6 @@ describe('yo repo:app', function() {
         .withPrompts(appSpec.answers.default)
         .then(function(dir) {
           assert.file('README.md');
-          done();
         })
         .catch(done);
     });
@@ -102,7 +97,6 @@ describe('yo repo:app', function() {
         .withPrompts(appSpec.answers.default)
         .then(function(dir) {
           assert.file('ROADMAP.md');
-          done();
         })
         .catch(done);
     });

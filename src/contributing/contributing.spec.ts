@@ -31,7 +31,6 @@ describe.skip('yo repo contributing', function() {
           assert.file('CODE\_OF\_CONDUCT.md');
           assert.file('CONTRIBUTING.md');
           assert.file('STYLE\_GUIDES.md');
-          done();
         })
         .catch(done);
     });
@@ -43,7 +42,6 @@ describe.skip('yo repo contributing', function() {
           assert.file('CODE\_OF\_CONDUCT.md');
           assert.file('CONTRIBUTING.md');
           assert.file('STYLE\_GUIDES.md');
-          done();
         })
         .catch(done);
     });

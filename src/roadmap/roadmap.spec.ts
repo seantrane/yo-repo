@@ -29,7 +29,6 @@ describe.skip('yo repo roadmap', function() {
         .withPrompts(appSpec.answers.default)
         .then(function(dir) {
           assert.file('ROADMAP.md');
-          done();
         })
         .catch(done);
     });
@@ -39,7 +38,6 @@ describe.skip('yo repo roadmap', function() {
       helpers.run(RepoRoadmapGenerator)
         .then(function(dir) {
           assert.file('ROADMAP.md');
-          done();
         })
         .catch(done);
     });

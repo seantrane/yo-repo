@@ -28,7 +28,6 @@ describe.skip('yo repo ignore', function() {
         .then(function(dir) {
           assert.file('.gitignore');
           assert.file('.npmignore');
-          done();
         })
         .catch(done);
     });
