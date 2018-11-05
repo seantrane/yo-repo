@@ -7,12 +7,17 @@ import * as helpers from 'yeoman-test';
 
 import { RepoGenerator } from './';
 
-const appSpec = require('./app.spec.json');
-
-const tempDirPath = path.join(__dirname, '../../temp');
-
-// Ensure Fetch unit tests are run first:
+// Ensure other unit tests are run first:
 require('../shared/yo-repo-fetch.spec');
+require('../shared/yo-repo-prompts.spec');
+require('../ci/ci.spec');
+require('../contributing/contributing.spec');
+require('../ignore/ignore.spec');
+require('../readme/readme.spec');
+require('../roadmap/roadmap.spec');
+
+const appSpec = require('./app.spec.json');
+const tempDirPath = path.join(__dirname, '../../temp');
 
 describe('yo repo:app', function() {
 
