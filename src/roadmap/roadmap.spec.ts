@@ -30,6 +30,7 @@ describe.skip('yo repo roadmap', function() {
         .then(function(dir) {
           assert.file('ROADMAP.md');
         })
+        .then(done)
         .catch(done);
     });
 
@@ -39,6 +40,7 @@ describe.skip('yo repo roadmap', function() {
         .then(function(dir) {
           assert.file('ROADMAP.md');
         })
+        .then(done)
         .catch(done);
     });
 

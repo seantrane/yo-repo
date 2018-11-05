@@ -59,6 +59,7 @@ describe('yo repo:app', function() {
         .then(function(dir) {
           assert.file('.gitignore');
         })
+        .then(done)
         .catch(done);
     });
 
@@ -69,6 +70,7 @@ describe('yo repo:app', function() {
         .then(function(dir) {
           assert.file('.npmignore');
         })
+        .then(done)
         .catch(done);
     });
 
@@ -80,6 +82,7 @@ describe('yo repo:app', function() {
           assert.file('LICENSE');
           assert.fileContent('LICENSE', /MIT License/);
         })
+        .then(done)
         .catch(done);
     });
 
@@ -90,6 +93,7 @@ describe('yo repo:app', function() {
         .then(function(dir) {
           assert.file('CODE\_OF\_CONDUCT.md');
         })
+        .then(done)
         .catch(done);
     });
 
@@ -100,6 +104,7 @@ describe('yo repo:app', function() {
         .then(function(dir) {
           assert.file('CONTRIBUTING.md');
         })
+        .then(done)
         .catch(done);
     });
 
@@ -110,6 +115,7 @@ describe('yo repo:app', function() {
         .then(function(dir) {
           assert.file('STYLE\_GUIDES.md');
         })
+        .then(done)
         .catch(done);
     });
 
@@ -120,6 +126,7 @@ describe('yo repo:app', function() {
         .then(function(dir) {
           assert.file('README.md');
         })
+        .then(done)
         .catch(done);
     });
 
@@ -130,6 +137,7 @@ describe('yo repo:app', function() {
         .then(function(dir) {
           assert.file('ROADMAP.md');
         })
+        .then(done)
         .catch(done);
     });
 

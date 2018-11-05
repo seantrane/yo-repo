@@ -30,6 +30,7 @@ describe.skip('yo repo readme', function() {
         .then(function(dir) {
           assert.file('README.md');
         })
+        .then(done)
         .catch(done);
     });
 
@@ -39,6 +40,7 @@ describe.skip('yo repo readme', function() {
         .then(function(dir) {
           assert.file('README.md');
         })
+        .then(done)
         .catch(done);
     });
 
