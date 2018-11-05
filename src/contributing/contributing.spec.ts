@@ -48,6 +48,39 @@ describe.skip('yo repo contributing', function() {
         .catch(done);
     });
 
+    // it.skip('should generate a CODE_OF_CONDUCT.md file with expected contents', function(done) {
+    //   setTimeout(done, 500);
+    //   helpers.run(RepoContributingGenerator)
+    //     .withPrompts(appSpec.answers.default)
+    //     .then(function(dir) {
+    //       assert.file('CODE\_OF\_CONDUCT.md');
+    //     })
+    //     .then(done)
+    //     .catch(done);
+    // });
+
+    // it.skip('should generate a CONTRIBUTING.md file with expected contents', function(done) {
+    //   setTimeout(done, 500);
+    //   helpers.run(RepoContributingGenerator)
+    //     .withPrompts(appSpec.answers.default)
+    //     .then(function(dir) {
+    //       assert.file('CONTRIBUTING.md');
+    //     })
+    //     .then(done)
+    //     .catch(done);
+    // });
+
+    // it.skip('should generate a STYLE_GUIDES.md file with expected contents', function(done) {
+    //   setTimeout(done, 500);
+    //   helpers.run(RepoContributingGenerator)
+    //     .withPrompts(appSpec.answers.default)
+    //     .then(function(dir) {
+    //       assert.file('STYLE\_GUIDES.md');
+    //     })
+    //     .then(done)
+    //     .catch(done);
+    // });
+
   });
 
 });

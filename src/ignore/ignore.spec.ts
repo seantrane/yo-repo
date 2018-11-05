@@ -33,6 +33,26 @@ describe.skip('yo repo ignore', function() {
         .catch(done);
     });
 
+    // it.skip('should generate a .gitignore file with expected contents', function(done) {
+    //   setTimeout(done, 300);
+    //   helpers.run(RepoIgnoreGenerator)
+    //     .then(function(dir) {
+    //       assert.file('.gitignore');
+    //     })
+    //     .then(done)
+    //     .catch(done);
+    // });
+
+    // it.skip('should generate a .npmignore file with expected contents', function(done) {
+    //   setTimeout(done, 300);
+    //   helpers.run(RepoIgnoreGenerator)
+    //     .then(function(dir) {
+    //       assert.file('.npmignore');
+    //     })
+    //     .then(done)
+    //     .catch(done);
+    // });
+
   });
 
 });
