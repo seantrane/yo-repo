@@ -24,7 +24,7 @@ describe.skip('yo repo contributing', function() {
   describe('the generator', function() {
 
     it('should generate contributing-info files with expected contents', function(done) {
-      setTimeout(done, 300);
+      setTimeout(done, 1000);
       helpers.run(RepoContributingGenerator)
         .withPrompts(appSpec.answers.default)
         .then(function(dir) {
@@ -37,7 +37,7 @@ describe.skip('yo repo contributing', function() {
     });
 
     it('should generate contributing-info files by default, without prompts', function(done) {
-      setTimeout(done, 300);
+      setTimeout(done, 1000);
       helpers.run(RepoContributingGenerator)
         .then(function(dir) {
           assert.file('CODE\_OF\_CONDUCT.md');
