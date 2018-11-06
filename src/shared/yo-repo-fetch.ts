@@ -16,10 +16,12 @@ import spdxCorrect = require('spdx-correct');
  */
 export class Fetch {
 
+  cache: Map<string, string>;
   packageJsonPath: string;
 
   constructor() {
     this.resetPackageJsonPath();
+    this.cache = new Map();
   }
 
   resetPackageJsonPath(value = 'package.json') {
@@ -108,14 +110,14 @@ export class Fetch {
    * @memberof Fetch
    */
   gitEmail(): string {
-    const emailCache = new Map();
-    let email = emailCache.get(process.cwd());
+    const cacheKey = 'gitEmail_' + process.cwd();
+    let email = this.cache.get(cacheKey);
     if (email) {
       return email;
     }
     if (shWhich('git')) {
       email = shExec('git config --get user.email', { silent: true }).stdout.toString().trim();
-      emailCache.set(process.cwd(), email);
+      this.cache.set(cacheKey, email);
     }
     return email;
   }
@@ -147,14 +149,14 @@ export class Fetch {
    * @memberof Fetch
    */
   gitName(): string {
-    const nameCache = new Map();
-    let name = nameCache.get(process.cwd());
+    const cacheKey = 'gitName_' + process.cwd();
+    let name = this.cache.get(cacheKey);
     if (name) {
       return name;
     }
     if (shWhich('git')) {
       name = shExec('git config --get user.name', { silent: true }).stdout.toString().trim();
-      nameCache.set(process.cwd(), name);
+      this.cache.set(cacheKey, name);
     }
     return name;
   }
