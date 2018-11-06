@@ -44,7 +44,7 @@
     "lint": "npm run lint:md && npm run lint:ts",
     "markdownlint": "markdownlint",
     "semantic-release": "semantic-release",
-    "test": "nyc mocha --opts mocha.opts"
+    "test": "nyc mocha --opts mocha.opts --timeout=7000 --exit"
   },
   "dependencies": {
     "@octokit/rest": "^15.10.0",
@@ -70,6 +70,7 @@
     "@semantic-release/changelog": "^3.0.0",
     "@semantic-release/git": "^7.0.1",
     "@types/chai": "^4.1.4",
+    "@types/chai-as-promised": "^7.1.0",
     "@types/configstore": "^2.1.1",
     "@types/figlet": "^1.2.0",
     "@types/lodash": "^4.14.117",
@@ -84,6 +85,7 @@
     "@types/yeoman-test": "^1.7.4",
     "@types/yosay": "0.0.29",
     "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
     "commitizen": "^3.0.4",
     "cz-conventional-changelog": "^2.1.0",
     "husky": "^1.0.0",
@@ -154,26 +156,26 @@
   "nyc": {
     "check-coverage": true,
     "per-file": false,
-    "branches": 80,
-    "functions": 80,
-    "lines": 80,
-    "statements": 80,
+    "branches": 60,
+    "functions": 70,
+    "lines": 70,
+    "statements": 70,
     "watermarks": {
       "branches": [
-        80,
-        95
+        60,
+        70
       ],
       "functions": [
-        80,
-        95
+        70,
+        85
       ],
       "lines": [
-        80,
-        95
+        70,
+        85
       ],
       "statements": [
-        80,
-        95
+        70,
+        85
       ]
     },
     "extension": [

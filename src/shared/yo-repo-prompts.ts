@@ -516,11 +516,13 @@ export class YoRepoPrompts implements YoRepoPromptsInterface {
    */
   async usernamePrompt(): Promise<string> {
     let githubUsername: string;
-    await this.yo.user.github.username().then((res) => {
-      githubUsername = res;
-    }).then(() => {
-      if (typeof githubUsername === 'undefined') githubUsername = fetch.username();
-    }).catch(handleError);
+    await this.yo.user.github.username()
+      .then((res) => {
+        githubUsername = res;
+      })
+      .catch((err) => {
+        if (typeof githubUsername === 'undefined') githubUsername = fetch.username();
+      });
     return this.yo.optionOrPrompt({
       type: 'input',
       name: 'username',

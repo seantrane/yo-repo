@@ -284,8 +284,8 @@ export class Fetch {
    */
   username(defaultValue = this.githubUsername()): string {
     let username = '';
-    if (existsSync(pathResolve('package.json'))) {
-      const pkg = require(pathResolve('package.json'));
+    if (existsSync(pathResolve(this.packageJsonPath))) {
+      const pkg = require(pathResolve(this.packageJsonPath));
       username = (
         (
           get(pkg, 'repository.url', pkg.repository) ||
