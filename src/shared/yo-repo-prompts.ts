@@ -1,8 +1,8 @@
 import chalk from 'chalk';
+import finda from 'finda';
 import { resolve as pathResolve } from 'path';
 
 import handleError from './handle-error';
-import fetch from './yo-repo-fetch';
 import YoRepoInterface from './yo-repo.interface';
 
 export interface YoRepoPromptsInterface {
@@ -246,7 +246,7 @@ export class YoRepoPrompts implements YoRepoPromptsInterface {
         'Example: ' + `@${this.username}\n` +
         '  Reference: require(package.json).author.name',
       ),
-      default: fetch.authorName(`@${this.username}`),
+      default: finda.authorName(`@${this.username}`),
     });
   }
 
@@ -325,7 +325,7 @@ export class YoRepoPrompts implements YoRepoPromptsInterface {
         'How would you describe your repo/package?',
         'Package Description:',
       ),
-      default: fetch.packageDescription(),
+      default: finda.packageDescription(),
     });
   }
 
@@ -345,7 +345,7 @@ export class YoRepoPrompts implements YoRepoPromptsInterface {
         'Destination directory:',
         'Default is the current directory.',
       ),
-      default: fetch.packageDestination(this.packageName),
+      default: finda.packageDestination(this.packageName),
     });
     return pathResolve(destination);
   }
@@ -444,7 +444,7 @@ export class YoRepoPrompts implements YoRepoPromptsInterface {
         '  Reference: require(package.json).name\n' +
         '  For more info; https://docs.npmjs.com/files/package.json#name',
       ),
-      default: fetch.packageName(),
+      default: finda.packageName(),
     });
   }
 
@@ -482,7 +482,7 @@ export class YoRepoPrompts implements YoRepoPromptsInterface {
         'Repository Name:',
         'Example: https://github.com/<%= profile_name %>/<%= repository_name %>',
       ),
-      default: fetch.packageName(),
+      default: finda.packageName(),
     });
   }
 
@@ -521,7 +521,7 @@ export class YoRepoPrompts implements YoRepoPromptsInterface {
         githubUsername = res;
       })
       .catch((err) => {
-        if (typeof githubUsername === 'undefined') githubUsername = fetch.username();
+        if (typeof githubUsername === 'undefined') githubUsername = finda.username();
       });
     return this.yo.optionOrPrompt({
       type: 'input',
@@ -552,7 +552,7 @@ export class YoRepoPrompts implements YoRepoPromptsInterface {
         '  Reference: require(package.json).version\n' +
         '  For more info; https://semver.org',
       ),
-      default: fetch.packageVersion('0.0.0'),
+      default: finda.packageVersion('0.0.0'),
     });
   }
 

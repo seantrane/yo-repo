@@ -8,7 +8,6 @@ import * as helpers from 'yeoman-test';
 import { RepoGenerator } from './';
 
 // Ensure other unit tests are run first:
-require('../shared/yo-repo-fetch.spec');
 require('../shared/yo-repo-prompts.spec');
 require('../ci/ci.spec');
 require('../contributing/contributing.spec');
