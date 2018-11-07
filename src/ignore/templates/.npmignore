@@ -1,7 +1,9 @@
 *.md
 !CHANGELOG.md
 !README.md
+!/lib
 .bowerrc
+.editorconfig
 .github
 .markdownlint.yaml
 .npmrc
@@ -9,11 +11,15 @@
 .vscode
 /docs
 /e2e
+/spec
 /src
+/test
 /tests
+CODEOWNERS
 logs
 mocha.opts
 package-lock.json
+sonar-project.properties
 tsconfig.json
 tslint.json
 typedoc.json
