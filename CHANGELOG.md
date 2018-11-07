@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## [1.0.10](https://github.com/seantrane/yo-repo/compare/v1.0.9...v1.0.10) (2018-11-07)
+
+
+### Bug Fixes
+
+* add more ignorables to .npmignore template ([9b89ab8](https://github.com/seantrane/yo-repo/commit/9b89ab8))
+* add unnecessary files to npm-ignore ([827f5c5](https://github.com/seantrane/yo-repo/commit/827f5c5))
+* replace Fetch with Finda ([d15057c](https://github.com/seantrane/yo-repo/commit/d15057c))
+
 ## [1.0.9](https://github.com/seantrane/yo-repo/compare/v1.0.8...v1.0.9) (2018-11-03)
 
 
