@@ -2,7 +2,6 @@ import chalk from 'chalk';
 import finda from 'finda';
 import { resolve as pathResolve } from 'path';
 
-import handleError from './handle-error';
 import YoRepoInterface from './yo-repo.interface';
 
 export interface YoRepoPromptsInterface {
