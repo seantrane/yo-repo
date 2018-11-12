@@ -127,11 +127,11 @@ To ensure consistency and quality all documentation modification must:
   - a concept described somewhere else in the documentation, i.e.; How to [contribute](CONTRIBUTING.md)
   - a third-party product/brand/service, i.e.; Integrate with [GitHub](https://github.com)
   - an external concept or feature, i.e.; Create a [GitHub release](https://help.github.com/articles/creating-releases)
-  - a package or module, i.e.; The [`<%= packageName %>`](<%= repositoryUrl %>) module
+  - a package or module, i.e.; The [`@seantrane/repo`](https://github.com/seantrane/repo) module
 - Use [single backtick `code` quoting](https://help.github.com/articles/basic-writing-and-formatting-syntax/#quoting-code) for:
   - commands inside sentences, i.e.; the `docker run` command
   - programming language keywords, i.e.; `function`, `async`, `String`
-  - packages or modules, i.e.; The [`<%= packageName %>`](<%= repositoryUrl %>) module
+  - packages or modules, i.e.; The [`@seantrane/repo`](https://github.com/seantrane/repo) module
 - Use [triple backtick `code` formatting](https://help.github.com/articles/creating-and-highlighting-code-blocks) for:
   - code examples
   - configuration examples
