@@ -1,10 +1,14 @@
 import { expect, should } from 'chai';
+import * as fs from 'fs-extra';
 import * as mocha from 'mocha';
 import * as path from 'path';
+import * as sh from 'shelljs';
 import * as assert from 'yeoman-assert';
 import * as helpers from 'yeoman-test';
 
 import { RepoIgnoreGenerator } from './';
+
+const tempPath = path.resolve('temp');
 
 describe('yo repo ignore', function() {
 
@@ -21,34 +25,24 @@ describe('yo repo ignore', function() {
 
   describe('the generator', function() {
 
-    it('should generate .gitignore and .npmignore files with expected contents', function(done) {
-      setTimeout(done, 300);
+    before(function(done) {
+      setTimeout(done, 1000);
       helpers.run(RepoIgnoreGenerator)
-        // .withPrompts(appSpec.answers.default)
         .then(function(dir) {
-          assert.file('.gitignore');
-          assert.file('.npmignore');
+          sh.rm('-rf', tempPath);
+          fs.copySync(dir, tempPath);
         })
+        .then(done)
         .catch(done);
     });
 
-    // it.skip('should generate a .gitignore file with expected contents', function(done) {
-    //   setTimeout(done, 300);
-    //   helpers.run(RepoIgnoreGenerator)
-    //     .then(function(dir) {
-    //       assert.file('.gitignore');
-    //     })
-    //     .catch(done);
-    // });
+    it('should generate a .gitignore file with expected contents', function() {
+      assert.file(tempPath + '/.gitignore');
+    });
 
-    // it.skip('should generate a .npmignore file with expected contents', function(done) {
-    //   setTimeout(done, 300);
-    //   helpers.run(RepoIgnoreGenerator)
-    //     .then(function(dir) {
-    //       assert.file('.npmignore');
-    //     })
-    //     .catch(done);
-    // });
+    it('should generate a .npmignore file with expected contents', function() {
+      assert.file(tempPath + '/.npmignore');
+    });
 
   });
 

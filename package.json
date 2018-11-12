@@ -44,7 +44,8 @@
     "lint": "npm run lint:md && npm run lint:ts",
     "markdownlint": "markdownlint",
     "semantic-release": "semantic-release",
-    "test": "nyc mocha --opts mocha.opts src/**/*.spec.ts"
+    "test:app": "nyc mocha --opts mocha.opts src/app/app.spec.ts",
+    "test": "npm run clean:temp && nyc mocha --opts mocha.opts src/**/*.spec.ts"
   },
   "dependencies": {
     "@octokit/rest": "^15.10.0",

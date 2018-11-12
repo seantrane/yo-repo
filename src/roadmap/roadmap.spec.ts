@@ -1,6 +1,8 @@
 import { expect, should } from 'chai';
+import * as fs from 'fs-extra';
 import * as mocha from 'mocha';
 import * as path from 'path';
+import * as sh from 'shelljs';
 import * as assert from 'yeoman-assert';
 import * as helpers from 'yeoman-test';
 
@@ -9,6 +11,8 @@ import { RepoRoadmapGenerator } from './';
 const appSpec = require('../app/app.spec.json');
 
 describe.skip('yo repo roadmap', function() {
+const tempPath = path.resolve('temp');
+
 
   describe('RepoRoadmapGenerator class', function() {
 
@@ -21,25 +25,41 @@ describe.skip('yo repo roadmap', function() {
 
   });
 
-  describe('the generator', function() {
+  describe('the generator without prompts', function() {
 
-    it('should generate a ROADMAP.md file with expected contents', function(done) {
-      setTimeout(done, 300);
+    before(function(done) {
+      setTimeout(done, 600);
       helpers.run(RepoRoadmapGenerator)
-        .withPrompts(appSpec.answers.default)
         .then(function(dir) {
-          assert.file('ROADMAP.md');
+          sh.rm('-rf', tempPath);
+          fs.copySync(dir, tempPath);
         })
+        .then(done)
         .catch(done);
     });
 
-    it('should generate a ROADMAP.md file by default, without prompts', function(done) {
-      setTimeout(done, 300);
+    it('should generate a ROADMAP.md file with expected contents', function() {
+      assert.file(tempPath + '/ROADMAP.md');
+    });
+
+  });
+
+  describe('the generator with prompts', function() {
+
+    before(function(done) {
+      setTimeout(done, 600);
       helpers.run(RepoRoadmapGenerator)
+        .withPrompts(appSpec.answers.default)
         .then(function(dir) {
-          assert.file('ROADMAP.md');
+          sh.rm('-rf', tempPath);
+          fs.copySync(dir, tempPath);
         })
+        .then(done)
         .catch(done);
+    });
+
+    it('should generate a ROADMAP.md file with expected contents', function() {
+      assert.file(tempPath + '/ROADMAP.md');
     });
 
   });

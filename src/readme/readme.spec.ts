@@ -1,12 +1,16 @@
 import { expect, should } from 'chai';
+import * as fs from 'fs-extra';
 import * as mocha from 'mocha';
 import * as path from 'path';
+import * as sh from 'shelljs';
 import * as assert from 'yeoman-assert';
 import * as helpers from 'yeoman-test';
 
 import { RepoReadmeGenerator } from './';
 
 const appSpec = require('../app/app.spec.json');
+
+const tempPath = path.resolve('temp');
 
 describe('yo repo readme', function() {
 
@@ -21,25 +25,41 @@ describe('yo repo readme', function() {
 
   });
 
-  describe('the generator', function() {
+  describe('the generator without prompts', function() {
 
-    it('should generate a README.md file with expected contents', function(done) {
-      setTimeout(done, 300);
+    before(function(done) {
+      setTimeout(done, 600);
       helpers.run(RepoReadmeGenerator)
-        .withPrompts(appSpec.answers.default)
         .then(function(dir) {
-          assert.file('README.md');
+          sh.rm('-rf', tempPath);
+          fs.copySync(dir, tempPath);
         })
+        .then(done)
         .catch(done);
     });
 
-    it('should generate a README.md file by default, without prompts', function(done) {
-      setTimeout(done, 300);
+    it('should generate a README.md file with expected contents', function() {
+      assert.file(tempPath + '/README.md');
+    });
+
+  });
+
+  describe('the generator with prompts', function() {
+
+    before(function(done) {
+      setTimeout(done, 600);
       helpers.run(RepoReadmeGenerator)
+        .withPrompts(appSpec.answers.default)
         .then(function(dir) {
-          assert.file('README.md');
+          sh.rm('-rf', tempPath);
+          fs.copySync(dir, tempPath);
         })
+        .then(done)
         .catch(done);
+    });
+
+    it('should generate a README.md file with expected contents', function() {
+      assert.file(tempPath + '/README.md');
     });
 
   });

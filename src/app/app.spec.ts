@@ -16,7 +16,7 @@ require('../readme/readme.spec');
 require('../roadmap/roadmap.spec');
 
 const appSpec = require('./app.spec.json');
-const tempDirPath = path.join(__dirname, '../../temp');
+const tempDirPath = path.resolve('temp');
 const deps = [
   [helpers.createDummyGenerator(), 'license'],
   [helpers.createDummyGenerator(), 'repo:ci'],
