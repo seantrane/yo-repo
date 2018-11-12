@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## [1.0.11](https://github.com/seantrane/yo-repo/compare/v1.0.10...v1.0.11) (2018-11-12)
+
+
+### Bug Fixes
+
+* add branch-conditionals to travis-config template ([b23b604](https://github.com/seantrane/yo-repo/commit/b23b604))
+* add missing 'chore' type to commit-guidelines template ([d9949d9](https://github.com/seantrane/yo-repo/commit/d9949d9))
+* fix md-syntax for link in code-of-conduct template ([cd9b514](https://github.com/seantrane/yo-repo/commit/cd9b514))
+* use variables in repo-links of style-guides template ([926fce6](https://github.com/seantrane/yo-repo/commit/926fce6))
+
 ## [1.0.10](https://github.com/seantrane/yo-repo/compare/v1.0.9...v1.0.10) (2018-11-07)
 
 
