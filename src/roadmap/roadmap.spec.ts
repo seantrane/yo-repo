@@ -10,9 +10,9 @@ import { RepoRoadmapGenerator } from './';
 
 const appSpec = require('../app/app.spec.json');
 
-describe.skip('yo repo roadmap', function() {
 const tempPath = path.resolve('temp');
 
+describe('yo repo roadmap', function() {
 
   describe('RepoRoadmapGenerator class', function() {
 
