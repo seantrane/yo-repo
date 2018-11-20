@@ -58,7 +58,7 @@
     "figlet": "^1.2.0",
     "finda": "^1.0.3",
     "generator-license": "^5.4.0",
-    "marked": "^0.4.0",
+    "marked": "^0.5.2",
     "parse-git-config": "^2.0.3",
     "shelljs": "^0.8.2",
     "spdx-correct": "^3.0.2",
