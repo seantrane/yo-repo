@@ -48,7 +48,7 @@
     "test": "npm run clean:temp && nyc mocha --opts mocha.opts src/**/*.spec.ts"
   },
   "dependencies": {
-    "@octokit/rest": "^15.10.0",
+    "@octokit/rest": "^16.0.1",
     "chalk": "^2.4.1",
     "clear": "^0.1.0",
     "clui": "^0.3.6",
