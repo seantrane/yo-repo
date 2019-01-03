@@ -102,7 +102,7 @@
     "source-map-support": "^0.5.8",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
-    "typedoc": "^0.13.0",
+    "typedoc": "^0.14.0",
     "typescript": "~2.9.2",
     "yeoman-assert": "^3.1.1",
     "yeoman-test": "^1.9.1"
