@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## [1.0.12](https://github.com/seantrane/yo-repo/compare/v1.0.11...v1.0.12) (2019-02-28)
+
+
+### Bug Fixes
+
+* add missing prompts/values to repo:ci generator ([33b1269](https://github.com/seantrane/yo-repo/commit/33b1269))
+* make ISC the default license ([56c42b4](https://github.com/seantrane/yo-repo/commit/56c42b4))
+* update and improve travis config template ([1de3180](https://github.com/seantrane/yo-repo/commit/1de3180))
+* update editorconfig file ([00c8150](https://github.com/seantrane/yo-repo/commit/00c8150))
+* **deps:** update all deps and related configs ([8b39ad5](https://github.com/seantrane/yo-repo/commit/8b39ad5))
+
 ## [1.0.11](https://github.com/seantrane/yo-repo/compare/v1.0.10...v1.0.11) (2018-11-12)
 
 
