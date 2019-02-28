@@ -101,6 +101,8 @@ export async function prompting(yo) {
   if (yo.options['generators'].indexOf('ci') !== -1) {
     yo.composeWith('repo:ci', {
       ...commonAnswers,
+      authorEmail: yo.answers.authorEmail,
+      authorName: yo.answers.authorName,
       // cicd: yo.answers.cicd,
     });
   }

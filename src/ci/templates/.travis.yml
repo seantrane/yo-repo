@@ -40,7 +40,7 @@ install:
 stages:
   - test
   - name: deploy
-    if: repo = <%= profile %>/<%= repositoryName %>
+    if: repo = <%= profileName %>/<%= repositoryName %>
         AND type != pull_request
         AND branch = master
 jobs:
@@ -49,7 +49,7 @@ jobs:
       name: 'Checks and Tests'
       script:
         - commitlint-travis
-        - travis_retry github-label-sync -a "$GH_TOKEN" -l 'https://git.io/fAe5i' <%= profile %>/<%= repositoryName %>
+        - travis_retry github-label-sync -a "$GH_TOKEN" -l 'https://git.io/fAe5i' <%= profileName %>/<%= repositoryName %>
         - npm run ci
         # - sonar-scanner
     - stage: deploy
@@ -68,5 +68,5 @@ jobs:
     #     target-branch: gh-pages
     #     local-dir: ./_site
     #     on:
-    #       repo: <%= profile %>/<%= repositoryName %>
+    #       repo: <%= profileName %>/<%= repositoryName %>
     #       branch: master
