@@ -1,39 +1,72 @@
-sudo: false
+sudo: required
 language: node_js
 node_js:
-  - '8'
+  - '10'
 cache:
+  bundler: true
   directories:
     - ~/.npm
     - node_modules
+  npm: true
 notifications:
   email: false
+services:
+  - docker
+addons:
+  apt:
+    packages:
+      - libcurl4-openssl-dev
+  # sonarcloud:
+  #   organization: org-key
+# git:
+#   depth: false
 branches:
   only:
     - master
-    - /^greenkeeper.*$/
+    - /^release.*$/
+env:
+  global:
+    - PATH=$HOME/.local/bin:$PATH
+    - PATH=$PWD:$PATH
+    - NOKOGIRI_USE_SYSTEM_LIBRARIES=true # speeds up installation of some gems
 before_install:
   # package-lock.json was introduced in npm@5
   - '[[ $(node -v) =~ ^v9.*$ ]] || npm install -g npm@latest' # skipped when using node 9
-  - npm install -g github-label-sync greenkeeper-lockfile
+  - npm install -g github-label-sync
+  # - gem install jekyll htmlproofer
 install:
   - travis_retry npm install
-before_script: '[[ $TRAVIS_BRANCH =~ ^greenkeeper.*$ ]] && greenkeeper-lockfile-update || echo "Skipping greenkeeper-lockfile-update";'
-script:
-  - npm audit
-  - commitlint-travis
-  - npm run lint
-  - npm run build
-  # - travis_retry github-label-sync -a "$GH_TOKEN" -l 'https://git.io/fAe5i' <github_profile>/<repo_name>
-  - npm test
-  - npm run e2e
-after_script: '[[ $TRAVIS_BRANCH =~ ^greenkeeper.*$ ]] && greenkeeper-lockfile-upload || echo "Skipping greenkeeper-lockfile-upload";'
+  # - travis_retry bundle install
+stages:
+  - test
+  - name: deploy
+    if: repo = <%= profile %>/<%= repositoryName %>
+        AND type != pull_request
+        AND branch = master
 jobs:
   include:
-    - stage: deploy
-      if: branch = master
-          AND type != pull_request
-          # AND repo = <github_profile>/<repo_name>
+    - stage: test
+      name: 'Checks and Tests'
       script:
-        - npm run build
-        - npm run semantic-release
+        - commitlint-travis
+        - travis_retry github-label-sync -a "$GH_TOKEN" -l 'https://git.io/fAe5i' <%= profile %>/<%= repositoryName %>
+        - npm run ci
+        # - sonar-scanner
+    - stage: deploy
+      name: 'Publish and Release'
+      script: npm run semantic-release
+    # - name: 'Deploy GitHub Pages'
+    #   script:
+    #     - JEKYLL_GITHUB_TOKEN="$GH_TOKEN" JEKYLL_ENV=production bundle exec jekyll build --destination _site
+    #   deploy: &pages
+    #     provider: pages
+    #     skip-cleanup: true
+    #     github-token: "$GH_TOKEN"
+    #     # name: <%= authorName %>
+    #     # email: <%= authorEmail %>
+    #     # keep-history: true
+    #     target-branch: gh-pages
+    #     local-dir: ./_site
+    #     on:
+    #       repo: <%= profile %>/<%= repositoryName %>
+    #       branch: master
