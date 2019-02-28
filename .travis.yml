@@ -17,11 +17,11 @@ git:
 branches:
   only:
     - master
-    - /^greenkeeper.*$/
+    - /^release.*$/
 before_install:
   # package-lock.json was introduced in npm@5
   - '[[ $(node -v) =~ ^v9.*$ ]] || npm install -g npm@latest' # skipped when using node 9
-  - npm install -g github-label-sync greenkeeper-lockfile
+  - npm install -g github-label-sync
 install:
   - travis_retry npm install
 stages:
@@ -35,15 +35,13 @@ jobs:
     - stage: test
       name: 'Checks and Tests'
       script:
-        - '[[ $TRAVIS_BRANCH =~ ^greenkeeper.*$ ]] && greenkeeper-lockfile-update || echo "Skipping greenkeeper-lockfile-update";'
-        - npm audit
+        # - npm audit
         - commitlint-travis
         - npm run lint
         - npm run build
         - travis_retry github-label-sync -a "$GH_TOKEN" -l 'https://git.io/fAe5i' seantrane/yo-repo
         # - npm test
         - '[[ $TRAVIS_BRANCH = master ]] && sonar-scanner || echo "Skipping sonar-scanner";'
-        - '[[ $TRAVIS_BRANCH =~ ^greenkeeper.*$ ]] && greenkeeper-lockfile-upload || echo "Skipping greenkeeper-lockfile-upload";'
     - stage: deploy
       name: 'Publish and Release'
       script:
