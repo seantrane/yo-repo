@@ -117,6 +117,6 @@ Release details are documented in the [CHANGELOG.md](https://github.com/seantran
 
 ## License <a id="license"></a>
 
-[MIT License](https://github.com/seantrane/yo-repo/blob/master/LICENSE)
+[ISC License](https://github.com/seantrane/yo-repo/blob/master/LICENSE)
 
 Copyright (c) 2018 [Sean Trane Sciarrone](https://github.com/seantrane)

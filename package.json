@@ -3,7 +3,7 @@
   "description": "Yo Repo! A Yeoman generator for awesome repositories",
   "version": "1.0.11",
   "author": "@seantrane",
-  "license": "MIT",
+  "license": "ISC",
   "homepage": "https://github.com/seantrane/yo-repo#readme",
   "repository": "github:seantrane/yo-repo",
   "bugs": "https://github.com/seantrane/yo-repo/issues",
