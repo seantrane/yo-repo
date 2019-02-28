@@ -68,7 +68,7 @@ export async function prompting(yo) {
   if (yo.options['generators'].indexOf('license') !== -1) {
     yo.composeWith(require.resolve('generator-license'), {
       email: yo.answers.authorEmail || yo.answers.username + '@users.noreply.github.com',
-      license: yo.answers.license,
+      license: yo.answers.license || 'ISC',
       name: yo.answers.authorName || yo.answers.username,
       output: resolve(yo.answers.destination, 'LICENSE'),
       website: yo.answers.homepageUrl || yo.answers.authorUrl,
