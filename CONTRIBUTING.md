@@ -49,7 +49,7 @@ Thank you for contributing.
 ## Clone the Repository <a id="clone-repo"></a>
 
 ```bash
-git clone https://github.com/seantrane/yo-repo.git yo-repo && cd yo-repo
+git clone git@github.com:seantrane/yo-repo.git yo-repo && cd yo-repo
 ```
 
 ## Install Dependencies <a id="install-dependencies"></a>
