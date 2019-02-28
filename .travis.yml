@@ -37,13 +37,10 @@ jobs:
       script:
         # - npm audit
         - commitlint-travis
-        - npm run lint
-        - npm run build
         - travis_retry github-label-sync -a "$GH_TOKEN" -l 'https://git.io/fAe5i' seantrane/yo-repo
-        # - npm test
-        - '[[ $TRAVIS_BRANCH = master ]] && sonar-scanner || echo "Skipping sonar-scanner";'
+        - npm run ci
+        # - sonar-scanner
     - stage: deploy
       name: 'Publish and Release'
       script:
-        - npm run build
         - npm run semantic-release
