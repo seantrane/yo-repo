@@ -9,6 +9,8 @@ cache:
   npm: true
 notifications:
   email: false
+services:
+  - docker
 addons:
   sonarcloud:
     organization: "seantrane-github"
@@ -18,6 +20,10 @@ branches:
   only:
     - master
     - /^release.*$/
+env:
+  global:
+    - PATH=$HOME/.local/bin:$PATH
+    - PATH=$PWD:$PATH
 before_install:
   # package-lock.json was introduced in npm@5
   - '[[ $(node -v) =~ ^v9.*$ ]] || npm install -g npm@latest' # skipped when using node 9
