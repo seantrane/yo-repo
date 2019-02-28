@@ -15,7 +15,7 @@ indent_size = 4
 [*.{html,css,less,sass,scss}]
 charset = utf-8
 
-[*.{js,jsx,json}]
+[*.{js,jsx,json,ts,tsx}]
 charset = utf-8
 
 [*.{md,rst}]
