@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## [1.0.13](https://github.com/seantrane/yo-repo/compare/v1.0.12...v1.0.13) (2019-03-05)
+
+
+### Bug Fixes
+
+* rename gitignore file to avoid missing template error ([3d27d76](https://github.com/seantrane/yo-repo/commit/3d27d76))
+* update finda to v1.0.8, fixes missing module errors ([bb406ef](https://github.com/seantrane/yo-repo/commit/bb406ef))
+
 ## [1.0.12](https://github.com/seantrane/yo-repo/compare/v1.0.11...v1.0.12) (2019-02-28)
 
 
