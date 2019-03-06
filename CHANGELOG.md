@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## [1.0.14](https://github.com/seantrane/yo-repo/compare/v1.0.13...v1.0.14) (2019-03-06)
+
+
+### Bug Fixes
+
+* refine fallback for author/username and author/repo URL ([3fbed2a](https://github.com/seantrane/yo-repo/commit/3fbed2a))
+* remove markdownlint-disable tag in readme template ([aaf46fd](https://github.com/seantrane/yo-repo/commit/aaf46fd))
+
 ## [1.0.13](https://github.com/seantrane/yo-repo/compare/v1.0.12...v1.0.13) (2019-03-05)
 
 

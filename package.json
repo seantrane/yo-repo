@@ -1,7 +1,7 @@
 {
   "name": "generator-repo",
   "description": "Yo Repo! A Yeoman generator for awesome repositories",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "author": "@seantrane",
   "license": "ISC",
   "homepage": "https://github.com/seantrane/yo-repo#readme",
