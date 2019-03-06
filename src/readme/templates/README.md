@@ -107,8 +107,5 @@ Release details are documented in the [CHANGELOG.md](<%= repositoryUrl %>/blob/m
 ## License <a id="license"></a>
 
 [<%= license %> License](<%= repositoryUrl %>/blob/master/LICENSE)
-<%
-author_name = typeof authorName !== 'undefined' ? authorName : username
-author_url = typeof authorUrl !== 'undefined' ? authorUrl : repositoryUrl
-%>
-Copyright (c) <%= new Date().getFullYear() %> [<%= author_name %>](<%= author_url %>)
+
+Copyright (c) <%= new Date().getFullYear() %> [<%= authorName || username %>](<%= authorUrl || repositoryUrl %>)
