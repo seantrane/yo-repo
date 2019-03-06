@@ -13,7 +13,7 @@ services:
   - docker
 addons:
   sonarcloud:
-    organization: "seantrane-github"
+    organization: seantrane-github
 git:
   depth: false
 branches:
