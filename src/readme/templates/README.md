@@ -1,7 +1,7 @@
 # <%= packageName %>
 
 > <%= description %>
-<!-- markdownlint-disable -->
+
 <%
 if (typeof badges !== 'undefined' && badges.length > 0) {
   %><%
